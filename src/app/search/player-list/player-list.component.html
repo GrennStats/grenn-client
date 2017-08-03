@@ -1,0 +1,21 @@
+<ng-container *ngIf="(search$ | async) as search">
+  <div *ngIf="search && search.loading; then loading else notLoading;"></div>
+
+  <ng-template #loading>
+    <loading-spinner ></loading-spinner>
+  </ng-template>
+
+  <ng-template #notLoading>
+
+    <div class="o-container">
+      <div class="o-grid">
+          <player-entry
+            class="o-grid__item u-1/3"
+            *ngFor="let player of search.entry"
+            [player]="player"
+          ></player-entry>
+      </div>
+    </div>
+
+  </ng-template>
+</ng-container>

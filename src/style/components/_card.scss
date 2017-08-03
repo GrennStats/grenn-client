@@ -1,0 +1,35 @@
+/* ==========================================================================
+   #CARD
+   ========================================================================== */
+
+.c-card {
+  background-color: #fff;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.c-card__title {
+  font-weight: 500;
+  font-size: 0.875em;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid $play-color-divider;
+}
+
+.c-card__title__hint {
+  font-weight: 400;
+  font-size: 0.875em;
+  margin-left: 1.5em;
+}
+
+.c-card__body {
+  padding: 0.75rem;
+}
+
+.c-card__body--hero {
+  border-bottom: 1px solid $play-color-divider;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+

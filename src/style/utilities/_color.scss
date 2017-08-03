@@ -1,0 +1,41 @@
+/* ==========================================================================
+   #COLOR
+   ========================================================================== */
+
+
+/**
+ * Utility classes to change the text color of elements.
+ *
+ * @atom Color
+ * @section Utility
+ * @modifiers
+ *  .u-color-primary Sets the text color to the primary color
+ *  .u-color-secondary Sets the text color to the secondary color
+ *  .u-color-saturated Sets the text color to the saturated color
+ * @markup
+ *  <div class="u-color-primary">@{lipsum:50:words}</div>
+ */
+
+.u-color-primary {
+  color: $play-color-primary;
+}
+
+.u-color-secondary {
+  color: $play-color-secondary;
+}
+
+.u-color-saturated {
+  color: $play-color-saturated-text;
+}
+
+.u-color-success {
+  color: $play-color-success;
+}
+
+.u-color-warning {
+  color: $play-color-warning;
+}
+
+.u-color-failure {
+  color: $play-color-failure;
+}

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   #CLEARFIX
+   ========================================================================== */
+
+
+/**
+ * Utility class to clear the floating of children.
+ * If a block is not clearfixed when it contains floats the block will not automatically adjust it's height.
+ * Further reading: http://www.cssmojo.com/the-very-latest-clearfix-reloaded/
+ *
+ * @atom Clearfix
+ * @section Utility
+ * @markup
+ *  <div class="u-clearfix" style="background: #e5e5e5;">
+ *    <div style="float: left; height: 50px;">I am left floated</div>
+ *    <div style="float: right;">I am right floated</div>
+ *  </div>
+ */
+
+.u-clearfix {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+

@@ -1,0 +1,13 @@
+/* ==========================================================================
+   #HERO
+   ========================================================================== */
+
+.c-hero {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  min-height: 25vh;
+  margin-bottom: 1.5rem;
+}

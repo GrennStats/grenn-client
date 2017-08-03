@@ -1,0 +1,25 @@
+/* ==========================================================================
+   #STAT BAR
+   ========================================================================== */
+
+.c-stat-bar {
+
+}
+
+.c-stat-bar__bar {
+  margin-bottom: 0.35em;
+}
+
+.c-stat-bar__value {
+  font-weight: 500;
+}
+
+.c-stat-bar__hint {
+  font-size: 0.75em;
+  color: $play-color-saturated-text;
+}
+
+.c-stat-bar__name {
+  text-transform: uppercase;
+  text-align: right;
+}

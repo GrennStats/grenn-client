@@ -1,0 +1,17 @@
+<div class="c-hero u-background-gigantic">
+  <form class="o-container o-container--center" (ngSubmit)="search(playerName);">
+    <input
+      type="search"
+      class="c-input c-input--huge p-search-input"
+      [(ngModel)]="playerName"
+      name="playerName"
+      autofocus
+    >
+
+    <button class="c-button c-button--primary c-button--huge">
+      {{ "search:find-player" | translate }}
+    </button>
+  </form>
+</div>
+
+<router-outlet></router-outlet>

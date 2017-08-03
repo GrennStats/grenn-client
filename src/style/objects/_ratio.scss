@@ -1,0 +1,41 @@
+/* ==========================================================================
+   #RATIO
+   ========================================================================== */
+
+
+/**
+ * Create ratio-bound content blocks, to keep media (e.g. images, videos) in their correct aspect ratios.
+ * Further reading: http://alistapart.com/article/creating-intrinsic-ratios-for-video
+ *
+ * @atom Ratio
+ * @section Objects
+ * @modifiers
+ *  .o-ratio--16:9 enforces a 16/9 ratio
+ *  .o-ratio--4:3 enforces a 4/3 ratio
+ *  .o-ratio--2:1 enforces a 2/1 ratio
+ * @markup
+ *  <div class="o-ratio o-ratio--16:9" style="background: #e5e5e5; width: 350px;"></div>
+ */
+
+.o-ratio {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+}
+
+@mixin ratio($antecedent, $consequent) {
+  .o-ratio--#{$antecedent}\:#{$consequent}::before {
+    padding-bottom: ($consequent / $antecedent) * 100%;
+  }
+}
+
+@include ratio(1, 1);
+@include ratio(2, 1);
+@include ratio(4, 3);
+@include ratio(16, 9);
+

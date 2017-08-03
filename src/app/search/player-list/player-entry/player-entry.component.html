@@ -1,0 +1,45 @@
+<article class="c-card" [routerLink]="['/player', player.gamertag]">
+  <div class="c-card__body c-card__body--hero">
+    <div class="o-flag">
+      <div class="o-flag__figure">
+        <square-image
+          class="u-shape-rounded-square"
+          [style.width.px]="50"
+          [image]="player.favorite_hero | heroImage"
+        ></square-image>
+      </div>
+
+      <div class="o-flag__body">
+        {{ player.gamertag }} <br>
+
+        <span class="u-color-saturated u-font-small">
+            {{ 'stats:level' | translate }} {{ player.account_level }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-card__body">
+    <div class="o-grid o-grid--justify-between o-grid--inside">
+
+      <div class="o-grid__item u-1/3">
+        <primary-stat
+          [description]="'stats:skill-points' | translate"
+        >{{ player.skill_rating }}</primary-stat>
+      </div>
+
+      <div class="o-grid__item u-1/3">
+        <primary-stat
+          [description]="'stats:wins' | translate"
+        >{{ player.total_wins || 0 }}</primary-stat>
+      </div>
+
+      <div class="o-grid__item u-1/3">
+        <primary-stat
+          [description]="'stats:winrate' | translate"
+          class="u-color-success"
+        >{{ player.win_rate }}</primary-stat>
+      </div>
+    </div>
+  </div>
+</article>

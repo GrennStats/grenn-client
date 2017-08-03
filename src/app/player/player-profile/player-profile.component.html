@@ -1,0 +1,26 @@
+<!-- <ngx-charts-advanced-pie-chart
+  *ngIf="stats$ | async as stats"
+  [scheme]="'cool'"
+  [results]="getTimeData(stats.entry)"
+></ngx-charts-advanced-pie-chart> -->
+
+<ng-container *ngIf="stats$ | async as stats">
+  <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
+
+  <ng-template #loading>
+    <loading-spinner ></loading-spinner>
+  </ng-template>
+
+  <ng-template #notLoading>
+
+    <div class="o-grid o-grid--center">
+      <section class="o-grid__item u-4/6">
+        <hero-card
+          *ngFor="let heroStats of getHeroStats(stats.entry)"
+          [stats]="heroStats"
+        ></hero-card>
+      </section>
+    </div>
+
+  </ng-template>
+</ng-container>

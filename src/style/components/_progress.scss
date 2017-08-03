@@ -1,0 +1,13 @@
+/* ==========================================================================
+   #PROGRESS
+   ========================================================================== */
+
+.c-progress {
+  height: 5px;
+  background-color: $play-color-saturated;
+}
+
+.c-progress__fill {
+  height: 5px;
+  background-color: $play-color-primary;
+}

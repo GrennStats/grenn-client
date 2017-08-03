@@ -1,0 +1,40 @@
+<div class="c-player-profile" *ngIf="stats$ | async as stats">
+  <div class="o-container" *ngIf="getPlayerStats(stats.entry) as playerStats">
+    <div class="o-grid o-grid--justify-between">
+      <div class="o-flag">
+        <div class="o-flag__figure">
+          <square-image
+            class="u-shape-rounded-square"
+            [style.width.px]="80"
+            [image]="'tripp' | heroImage"
+          ></square-image>
+        </div>
+
+        <div class="o-flag__body">
+            <div class="c-player-profile__name">
+              {{ playerId$ | async }}
+            </div>
+        </div>
+      </div>
+
+      <div class="o-grid u-1/2">
+        <stat-card [value]="playerStats.skill" class="o-grid__item u-1/3">
+          {{ "stats:skill-points" | translate }}
+        </stat-card>
+
+        <stat-card [value]="playerStats.winrate" class="o-grid__item u-1/3">
+          {{ "stats:winrate" | translate }}
+        </stat-card>
+
+        <stat-card [value]="playerStats.kda" class="o-grid__item u-1/3">
+          {{ "stats:kda" | translate }}
+        </stat-card>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="o-container">
+  <router-outlet></router-outlet>
+</div>

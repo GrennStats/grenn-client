@@ -1,0 +1,90 @@
+<article class="c-card">
+  <div class="c-card__body c-card__body--hero">
+    <div class="o-flag o-flag--fit u-1/2">
+      <div class="o-flag__figure">
+        <square-image
+          class="u-shape-rounded-square"
+          [style.width.px]="50"
+          [image]="stats.hero | heroImage"
+        ></square-image>
+      </div>
+
+      <div class="o-flag__body">
+        {{ stats.hero | heroName }} <br>
+
+        <span class="u-color-saturated u-font-small">
+          {{ stats.games.total }} {{ 'stats:games' | translate }}
+        </span>
+
+        -
+
+        <span class="u-color-saturated u-font-small">
+          {{ stats.games.hours }} {{ 'stats:hours' | translate }}
+        </span>
+      </div>
+    </div>
+
+    <primary-stat
+      [description]="'stats:kda' | translate"
+      class="u-color-primary"
+    >{{ stats.kda.value }}</primary-stat>
+
+    <primary-stat
+      [description]="'stats:win-loss' | translate"
+    >
+      <span class="u-color-success">{{ stats.games.wins }}</span>
+      -
+      <span class="u-color-failure">{{ stats.games.losses }}</span>
+    </primary-stat>
+
+    <primary-stat
+      [description]="'stats:winrate' | translate"
+      class="u-color-success"
+    >{{ stats.games.winrate }}%</primary-stat>
+  </div>
+
+  <div class="c-card__body">
+    <div class="o-grid o-grid--justify-between o-grid--inside">
+
+      <div class="o-grid__item u-1/5">
+         <stat-bar
+          [name]="'stats:kills' | translate"
+          [description]="'stats:per-min' | translate"
+          [value]="stats.kills.value"
+          [percentage]="stats.kills.percentage"
+          [color]="stats.hero | heroColor"
+        ></stat-bar>
+      </div>
+
+      <div class="o-grid__item u-1/5">
+        <stat-bar
+          [name]="'stats:deaths' | translate"
+          [description]="'stats:per-min' | translate"
+          [value]="stats.deaths.value"
+          [percentage]="stats.deaths.percentage"
+          [color]="stats.hero | heroColor"
+        ></stat-bar>
+      </div>
+
+      <div class="o-grid__item u-1/5">
+        <stat-bar
+          [name]="'stats:assists' | translate"
+          [description]="'stats:per-min' | translate"
+          [value]="stats.assists.value"
+          [percentage]="stats.assists.percentage"
+          [color]="stats.hero | heroColor"
+        ></stat-bar>
+      </div>
+
+      <div class="o-grid__item u-1/5">
+        <stat-bar
+          [name]="'stats:damage' | translate"
+          [description]="'stats:per-min' | translate"
+          [value]="stats.damage.value"
+          [percentage]="stats.damage.percentage"
+          [color]="stats.hero | heroColor"
+        ></stat-bar>
+      </div>
+    </div>
+  </div>
+</article>

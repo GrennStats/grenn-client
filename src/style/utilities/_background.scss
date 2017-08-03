@@ -1,0 +1,44 @@
+/* ==========================================================================
+   #BACKGROUND
+   ========================================================================== */
+
+/**
+ * Utility classes to change the background color of elements.
+ *
+ * @atom Background
+ * @section Utility
+ * @modifiers
+ *  .u-background-primary Sets the background color to the primary color
+ *  .u-background-primary-accent Sets the background color to the primary accent color
+ *  .u-background-secondary Sets the background color to the secondary color
+ *  .u-background-saturated Sets the background color to the saturated color
+ *  .u-background-saturated-accent Sets the background color to the saturated accent color
+ * @markup
+ *  <div class="u-background-primary" style="width: 350px; height: 250px;"></div>
+ */
+
+.u-background-primary {
+  background-color: $play-color-primary;
+}
+
+.u-background-primary-accent {
+  background-color: $play-color-primary-accent;
+}
+
+.u-background-secondary {
+  background-color: $play-color-secondary;
+}
+
+.u-background-saturated {
+  background-color: $play-color-saturated;
+}
+
+.u-background-saturated-accent {
+  background-color: $play-color-saturated-accent;
+}
+
+.u-background-gigantic {
+  background-image: url("assets/gigantic_background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}

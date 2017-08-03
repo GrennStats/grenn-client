@@ -1,0 +1,18 @@
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+
+.o-container {
+  width: 100%;
+  max-width: 68.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.o-container--center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

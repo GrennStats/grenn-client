@@ -1,0 +1,70 @@
+/* ==========================================================================
+   #BADGE
+   ========================================================================== */
+
+
+/**
+ * A simple badge component that is used for adding more information to something.
+ * E.g. number of unread messages to an icon
+ *
+ * @atom Badge
+ * @section Components
+ * @modifiers
+ *  .c-badge--primary Colors the badge in the primary color
+ *  .c-badge--success Colors the badge in the success color
+ *  .c-badge--warning Colors the badge in the warning color
+ *  .c-badge--failure Colors the badge in the failure color
+ *  .c-badge--empty Colors the badge empty -> white background
+ * @markup
+ *  <span class="c-badge c-badge--primary">25</span>
+ *  <span class="c-badge c-badge--empty">25</span>
+ *  <span class="c-badge c-badge--success">Bug</span>
+ *  <span class="c-badge c-badge--warning">Bug</span>
+ *  <span class="c-badge c-badge--failure">Bug</span>
+ */
+
+.c-badge {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 0.75em;
+  border-radius: 1em;
+  line-height: 1;
+  margin-left: 0.3125rem;
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+
+/* Color modifiers
+   ========================================================================== */
+
+.c-badge--primary {
+  background: $play-color-primary;
+  color: #fff;
+}
+
+.c-badge--empty {
+  color: inherit;
+  background: #fff;
+}
+
+.c-badge--success {
+  color: #fff;
+  background: $play-color-success;
+}
+
+.c-badge--failure {
+  color: #fff;
+  background: $play-color-failure;
+}
+
+.c-badge--warning {
+  color: #333;
+  background: $play-color-warning;
+}
+

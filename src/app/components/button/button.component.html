@@ -1,0 +1,7 @@
+<button class="c-button" [ngClass]="classList" [disabled]="isDisabled || isLoading" (click)="clicked.emit($event)">
+  <span [ngClass]="{'c-button__text--loading': isLoading}">
+      <ng-content></ng-content>
+  </span>
+
+  <loading-spinner *ngIf="isLoading" class="c-button__loading-spinner"></loading-spinner>
+</button>

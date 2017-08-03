@@ -1,0 +1,92 @@
+///* ========================================================================
+//   #COLORS
+//   ======================================================================== */
+
+/* Color palette
+   ========================================================================== */
+
+/**
+ * Primary
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-primary: #1076e5;
+
+/**
+ * Primary Accent
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-primary-accent: #4191ea;
+
+/**
+ * Secondary
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-secondary: #0c121c;
+
+/**
+ * Saturated
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-saturated: #e7e7e9;
+
+/**
+ * Saturated Accent
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-saturated-accent: #ebecee;
+
+/**
+ * Saturated Text
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-saturated-text: #818f8f;
+
+/**
+ * Divider
+ *
+ * @color
+ * @section Palette
+ */
+$play-color-divider: #ddd;
+
+
+/* States
+   ========================================================================== */
+
+
+/**
+ * Success
+ *
+ * @color
+ * @section State
+ */
+$play-color-success: #28b662;
+
+/**
+ * Warning
+ *
+ * @color
+ * @section State
+ */
+$play-color-warning: #ffc145;
+
+/**
+ * Failure
+ *
+ * @color
+ * @section State
+ */
+$play-color-failure: #e43726;
+

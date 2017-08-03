@@ -1,0 +1,64 @@
+/* ==========================================================================
+   #GRID
+   ========================================================================== */
+
+
+/**
+ * A grid is a layout element wich allows you to structure your content more easily.
+ * This grid implementation heavily uses utility classes for it's children widths.
+ *
+ * @molecule Grid
+ * @section Objects
+ * @modifiers
+ *  .o-grid--center Center content horizontally
+ *  .o-grid--inside Remove padding left/right of grid
+ * @markup
+ *   <div class="o-grid">
+ *       <div class="o-grid__item u-1/1" style="background: #eee; height: 50px;"></div>
+ *
+ *       <div class="o-grid__item u-1/4" style="background: #aaa; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/4" style="background: #eee; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/4" style="background: #aaa; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/4" style="background: #eee; height: 50px;"></div>
+ *
+ *       <div class="o-grid__item u-1/5" style="background: #aaa; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/5" style="background: #eee; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/5" style="background: #aaa; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/5" style="background: #eee; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/5" style="background: #aaa; height: 50px;"></div>
+ *
+ *       <div class="o-grid__item u-2/5" style="background: #aaa; height: 50px;"></div>
+ *       <div class="o-grid__item u-1/5" style="background: #eee; height: 50px;"></div>
+ *       <div class="o-grid__item u-2/5" style="background: #aaa; height: 50px;"></div>
+ *   </div>
+ */
+
+.o-grid {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row wrap;
+  padding: 0 0.375rem;
+}
+
+.o-grid--center {
+  justify-content: center;
+}
+
+.o-grid--justify-between {
+  justify-content: space-between;
+}
+
+.o-grid--inside {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+.o-grid__item {
+  width: 100%;
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+
+.o-grid__item--auto {
+  flex: 1 0 0;
+}

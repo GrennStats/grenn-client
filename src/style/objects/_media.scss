@@ -1,0 +1,53 @@
+/* ==========================================================================
+   #MEDIA
+   ========================================================================== */
+
+
+/**
+ * The media object is a design pattern similar to the flag object, however it aligns it on the vertical top. You can find more info here:
+ * http://csswizardry.com/2013/05/the-flag-object/
+ *
+ * @molecule Media Object
+ * @section Objects
+ * @modifiers
+ *  .o-media--fit only use as much horizontal space as needed instead of 100%
+ * @markup
+ *  <div class="o-media">
+ *      <img src="@{image:300:200}" class="o-media__figure">
+ *
+ *      <div class="o-media__body">
+ *         @{lipsum:50:words}
+ *      </div>
+ *  </div>
+ */
+
+.o-media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.o-media--fit {
+  display: inline-flex;
+}
+
+.o-media__figure {
+  margin-right: 1em;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  &> :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-media__body {
+  flex-grow: 1;
+  flex-shrink: 1;
+  &> :last-child {
+    margin-bottom: 0;
+  }
+  +.o-media__figure {
+    margin-left: 1em;
+    margin-right: 0;
+  }
+}

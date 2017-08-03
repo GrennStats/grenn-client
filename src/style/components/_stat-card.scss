@@ -1,0 +1,23 @@
+/* ==========================================================================
+   #STAT CARD
+   ========================================================================== */
+
+.c-stat-card {
+  background-color: #121d2f;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.c-stat-card__value {
+  font-weight: 500;
+  font-size: 1.25em;
+}
+
+.c-stat-card__body {
+  padding: 1rem;
+}
+
+.c-stat-card__description {
+  text-transform: uppercase;
+  color: $play-color-saturated-text;
+}

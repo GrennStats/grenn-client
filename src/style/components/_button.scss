@@ -1,0 +1,124 @@
+/* ==========================================================================
+   #BUTTON
+   ========================================================================== */
+
+/**
+ * A simple button component.
+ * A button indicates an action and not a hyperlink
+ *
+ * @atom Button
+ * @section Components > Button
+ * @modifiers
+ *  .c-button--primary Colors the button in the primary color
+ *  .c-button--destructive Colors the button in the destructive color
+ *  .c-button--empty Colors the button empty -> white background and a grey border
+ *  .is-disabled Sets the button to disabled state by CSS
+ *  .c-button--gigantic Makes the button gigantic big
+ *  .c-button--huge Makes the button huge
+ *  .c-button--big only Makes the button a bit bigger
+ *  .c-button--petite Makes the button a bit smaller
+ *  .c-button--skinny Makes the button very skinny
+ *  .c-button--block Makes the button full width
+ * @markup
+ *  <button class="c-button c-button--primary">Primary</button>
+ *  <button class="c-button c-button--destructive">Destructive</button>
+ *  <button class="c-button c-button--primary" disabled>Primary Disabled</button>
+ *  <button class="c-button c-button--empty">Empty</button>
+ *  <button class="c-button c-button--empty" disabled>Empty Disabled</button>
+ *
+ *  <br><br>
+ *  <button class="c-button c-button--primary c-button--gigantic">Gigantic</button>
+ *  <button class="c-button c-button--primary c-button--huge">Huge</button>
+ *  <button class="c-button c-button--primary c-button--big">Big</button>
+ *  <button class="c-button c-button--primary c-button--petite">Petite</button>
+ *  <button class="c-button c-button--primary c-button--primary c-button--skinny">Skinny</button>
+ *  <br><br>
+ *  <button class="c-button c-button--primary c-button--big c-button--block">Block</button>
+ * @script
+ *  <play-button class="c-button--primary" [disabled]="true" [loading]="false">Disabled primary button</play-button>
+ */
+ .c-button {
+  font-size: 0.86em;
+  border-radius: 2px;
+  padding: 0.5em 1em;
+  user-select: none;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  font-weight: 600;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+
+  &[disabled],
+  .is-disabled {
+    cursor: not-allowed;
+    background-color: $play-color-saturated-accent;
+    color: $play-color-saturated-text;
+  }
+}
+
+.c-button__loading-spinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: initial;
+  height: 100%;
+}
+
+.c-button__text--loading {
+  opacity: 0;
+}
+
+/* Color modifiers
+   ========================================================================== */
+
+.c-button--primary {
+  background-color: $play-color-primary-accent;
+  color: #fff;
+}
+
+.c-button--destructive {
+  background-color: $play-color-failure;
+  color: #fff;
+}
+
+.c-button--empty {
+  color: $play-color-primary;
+  background-color: #fff;
+}
+
+/* Size modifiers
+   ========================================================================== */
+
+.c-button--gigantic {
+  font-size: 1.25em;
+  padding: 0.75em 1.25em;
+}
+
+.c-button--huge {
+  font-size: 1em;
+  padding: 0.75em 1.25em;
+}
+
+.c-button--big {
+  padding: 0.75em 1.25em;
+}
+
+.c-button--petite {
+  padding: 0.5em;
+}
+
+.c-button--skinny {
+  padding: 0.25em;
+}
+
+.c-button--block {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,70 @@
+/* ==========================================================================
+   #LABEL
+   ========================================================================== */
+
+
+/**
+ * A simple label component that is used for labeling something.
+ * E.g. a github issue as a bug
+ *
+ * @atom Label
+ * @section Components
+ * @modifiers
+ *  .c-label--primary Colors the label in the primary color
+ *  .c-label--success Colors the label in the success color
+ *  .c-label--warning Colors the label in the warning color
+ *  .c-label--failure Colors the label in the failure color
+ *  .c-label--empty Colors the label empty -> white background
+ * @markup
+ *  <span class="c-label c-label--primary">Bug</span>
+ *  <span class="c-label c-label--empty">Bug</span>
+ *  <span class="c-label c-label--success">Bug</span>
+ *  <span class="c-label c-label--warning">Bug</span>
+ *  <span class="c-label c-label--failure">Bug</span>
+ */
+
+.c-label {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 0.75em;
+  border-radius: 0.25em;
+  line-height: 1;
+  margin-left: 0.3125rem;
+  font-weight: normal;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+
+/* Color modifiers
+   ========================================================================== */
+
+.c-label--primary {
+  background: $play-color-primary;
+  color: #fff;
+}
+
+.c-label--empty {
+  color: inherit;
+  background: #fff;
+}
+
+.c-label--success {
+  color: #fff;
+  background: $play-color-success;
+}
+
+.c-label--failure {
+  color: #fff;
+  background: $play-color-failure;
+}
+
+.c-label--warning {
+  color: #333;
+  background: $play-color-warning;
+}
+
