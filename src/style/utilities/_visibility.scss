@@ -1,0 +1,27 @@
+/* ==========================================================================
+   #VISIBILITY
+   ========================================================================== */
+
+@include media-query("mobile") {
+    .u-hidden-mobile {
+        display: none;
+    }
+}
+
+@include media-query("tablet") {
+    .u-hidden-tablet {
+        display: none;
+    }
+}
+
+@include media-query("desktop") {
+    .u-hidden-desktop {
+        display: none;
+    }
+}
+
+@include media-query("big") {
+    .u-hidden-big {
+        display: none;
+    }
+}

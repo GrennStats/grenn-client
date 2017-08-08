@@ -5,9 +5,16 @@ import {LoadMultipleAction, LoadMultipleCompleteAction} from "../../state-utilit
 import {SearchPlayerResponse} from "./search.resource";
 
 export const SearchActionTypes = {
-  SEARCH_PLAYER: type("[Player] Search "),
-  SEARCH_PLAYER_COMPLETE: type("[Player] Search Stats Complete"),
-  SEARCH_PLAYER_ONCE: type("[Player] Search Stats Once"),
+  SEARCH_HISTORY: type("[Search] Set History"),
+  SEARCH_PLAYER: type("[Search] Search"),
+  SEARCH_PLAYER_COMPLETE: type("[Search] Search Complete"),
+  SEARCH_PLAYER_ONCE: type("[Search] Search Once"),
+}
+
+export class SearchPlayerHistoryAction implements Action {
+  public type = SearchActionTypes.SEARCH_HISTORY;
+
+  constructor(public playerId: string) {}
 }
 
 export class SearchPlayerAction implements LoadMultipleAction {

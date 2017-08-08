@@ -4,8 +4,9 @@
 
 .c-player-profile {
   background-color: $play-color-secondary;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  @extend %baseline;
 }
 
 .c-player-profile__name {

@@ -1,6 +1,13 @@
 .p-search-input {
-  margin-right: 0.5em;
   max-width: 100%;
-  width: 21.875rem;
+  width: 30rem;
+  background-color: #252d38;
+  transition: background 0.15s ease-in-out;
+  outline: 0;
+  color: #ddd;
+  padding: 1em;
 
+  &:focus {
+    background-color: lighten(#252d38, 3%);
+  }
 }

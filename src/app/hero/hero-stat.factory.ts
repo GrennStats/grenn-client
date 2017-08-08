@@ -63,7 +63,7 @@ export class HeroStatFactory {
 
   public getHeroStat(hero: string, stats: StatsType): HeroStat {
     const totalStats: TotalStats = stats.total;
-    const bestStats: Stats = stats.best;
+    const bestStats: Stats = stats.best || stats.total;
 
     const totalMinutes = Math.floor(totalStats.time_played / 60);
 

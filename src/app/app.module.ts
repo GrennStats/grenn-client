@@ -33,8 +33,10 @@ import {HeroImagePipe} from "./hero/hero-image.pipe";
 import {HeroNamePipe} from "./hero/hero-name.pipe";
 import {HeroColorPipe} from "./hero/hero-color.pipe";
 import {ButtonComponent} from "./components/button/button.component";
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
-import { PlayerEntryComponent } from './search/player-list/player-entry/player-entry.component';
+import {LoadingSpinnerComponent} from "./components/loading-spinner/loading-spinner.component";
+import {PlayerEntryComponent} from "./player-entry/player-entry.component";
+import {NavigationComponent} from "./components/navigation/navigation.component";
+import {AppConfig} from "./app.config";
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { PlayerEntryComponent } from './search/player-list/player-entry/player-e
     HeroColorPipe,
     ButtonComponent,
     LoadingSpinnerComponent,
-    PlayerEntryComponent
+    PlayerEntryComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,8 @@ import { PlayerEntryComponent } from './search/player-list/player-entry/player-e
   providers: [
     PlayerResource,
     SearchResource,
-    HeroStatFactory
+    HeroStatFactory,
+    AppConfig
   ],
   bootstrap: [AppComponent]
 })
@@ -120,7 +124,10 @@ export class AppModule {
       "stats:skill-points": "skill points",
       "stats:level": "level",
 
-      "search:find-player": "find player"
+      "search:find-player": "find player",
+      "search:enter-name": "Enter your gigantic username...",
+      "search:not-found-title": "Well, this is awkward...",
+      "search:not-found-description": "Unfortunately we were not able to find a player with a similar name.",
     });
   }
 }

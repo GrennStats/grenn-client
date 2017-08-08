@@ -1,5 +1,9 @@
 <ng-container *ngIf="(search$ | async) as search">
-  <div *ngIf="search && search.loading; then loading else notLoading;"></div>
+  <div class="c-highlight c-highlight--lean">
+      <ng-container
+        *ngIf="search && search.loading; then loading else notLoading;"
+      ></ng-container>
+  </div>
 
   <ng-template #loading>
     <loading-spinner ></loading-spinner>
@@ -7,13 +11,22 @@
 
   <ng-template #notLoading>
 
-    <div class="o-container">
+    <div class="o-container" *ngIf="search.entry.length">
       <div class="o-grid">
           <player-entry
-            class="o-grid__item u-1/3"
+            class="o-grid__item u-1/1 u-1/2@tablet u-1/3@desktop"
             *ngFor="let player of search.entry"
             [player]="player"
           ></player-entry>
+      </div>
+    </div>
+
+    <div class="o-container o-container--center p-player-search__not-found" *ngIf="!search.entry.length">
+      <img src="assets/gasmask.svg">
+
+      <div class="p-player-search__not-found__text">
+          <h2>{{ "search:not-found-title" | translate }}</h2>
+          <p>{{ "search:not-found-description" | translate }}</p>
       </div>
     </div>
 

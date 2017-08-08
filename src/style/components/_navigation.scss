@@ -1,0 +1,23 @@
+/* ==========================================================================
+   #NAVIGATION
+   ========================================================================== */
+
+.c-navigation {
+  background-color: #121d2f;
+}
+
+.c-navigation__list {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.c-navigation__list-item {
+  display: flex;
+}
+
+.c-navigation__link {
+  text-decoration: none;
+  padding: 0.5em 0.25em;
+}

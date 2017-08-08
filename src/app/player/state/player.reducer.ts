@@ -14,12 +14,14 @@ export interface PlayerStatsState {
   stats: PlayerStateStats;
 }
 
-export const playerReducer = compose(combineReducers)({
-  stats: createMultipleLoadReducer(
-    PlayerActionTypes.LOAD_PLAYER_STATS,
-    PlayerActionTypes.LOAD_PLAYER_STATS_COMPLETE
-  ),
-});
+export function playerReducer(state: PlayerStatsState, action) {
+  return combineReducers({
+    stats: createMultipleLoadReducer(
+      PlayerActionTypes.LOAD_PLAYER_STATS,
+      PlayerActionTypes.LOAD_PLAYER_STATS_COMPLETE
+    ),
+  })(state, action);
+}
 
 function getStatsEntity(state: PlayerStatsState): PlayerStateStats {
   return state.stats;

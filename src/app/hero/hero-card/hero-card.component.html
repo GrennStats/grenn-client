@@ -10,17 +10,19 @@
       </div>
 
       <div class="o-flag__body">
-        {{ stats.hero | heroName }} <br>
+        {{ stats.hero | heroName }}
 
-        <span class="u-color-saturated u-font-small">
-          {{ stats.games.total }} {{ 'stats:games' | translate }}
-        </span>
+        <div class="u-hidden-mobile">
+          <span class="u-color-saturated u-font-small">
+              {{ stats.games.total }} {{ 'stats:games' | translate }}
+            </span>
 
-        -
+            -
 
-        <span class="u-color-saturated u-font-small">
-          {{ stats.games.hours }} {{ 'stats:hours' | translate }}
-        </span>
+            <span class="u-color-saturated u-font-small">
+              {{ stats.games.hours }} {{ 'stats:hours' | translate }}
+            </span>
+        </div>
       </div>
     </div>
 
@@ -29,13 +31,15 @@
       class="u-color-primary"
     >{{ stats.kda.value }}</primary-stat>
 
-    <primary-stat
-      [description]="'stats:win-loss' | translate"
-    >
-      <span class="u-color-success">{{ stats.games.wins }}</span>
-      -
-      <span class="u-color-failure">{{ stats.games.losses }}</span>
-    </primary-stat>
+    <div class="u-hidden-mobile">
+      <primary-stat
+        [description]="'stats:win-loss' | translate"
+      >
+        <span class="u-color-success">{{ stats.games.wins }}</span>
+        -
+        <span class="u-color-failure">{{ stats.games.losses }}</span>
+      </primary-stat>
+    </div>
 
     <primary-stat
       [description]="'stats:winrate' | translate"
@@ -46,7 +50,7 @@
   <div class="c-card__body">
     <div class="o-grid o-grid--justify-between o-grid--inside">
 
-      <div class="o-grid__item u-1/5">
+      <div class="o-grid__item u-1/3 u-1/5@tablet">
          <stat-bar
           [name]="'stats:kills' | translate"
           [description]="'stats:per-min' | translate"
@@ -56,7 +60,7 @@
         ></stat-bar>
       </div>
 
-      <div class="o-grid__item u-1/5">
+      <div class="o-grid__item u-1/3 u-1/5@tablet">
         <stat-bar
           [name]="'stats:deaths' | translate"
           [description]="'stats:per-min' | translate"
@@ -66,7 +70,7 @@
         ></stat-bar>
       </div>
 
-      <div class="o-grid__item u-1/5">
+      <div class="o-grid__item u-1/3 u-1/5@tablet">
         <stat-bar
           [name]="'stats:assists' | translate"
           [description]="'stats:per-min' | translate"
@@ -76,7 +80,7 @@
         ></stat-bar>
       </div>
 
-      <div class="o-grid__item u-1/5">
+      <div class="o-grid__item u-1/3 u-1/5@tablet u-hidden-mobile">
         <stat-bar
           [name]="'stats:damage' | translate"
           [description]="'stats:per-min' | translate"

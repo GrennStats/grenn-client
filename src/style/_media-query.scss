@@ -1,0 +1,29 @@
+$bigwidth: 75rem !default; // 1200px
+$desktopwidth: 58.75rem !default; // 940px
+$tabletwidth: 45rem !default; // 720px
+$mobilewidth: 0rem !default; // 0px
+$retina: true !default;
+$fakeretina: false !default;
+
+@mixin media-query($point) {
+	@if $point == "big" {
+		@media (min-width: $bigwidth) { @content; }
+	}
+	@else if $point == "desktop" {
+		@media (min-width: $desktopwidth) { @content; }
+	}
+	@else if $point == "tablet" {
+		@media (min-width: $tabletwidth) { @content; }
+	}
+	@else if $point == "mobile" {
+		@media (min-width: $mobilewidth) and (max-width: $tabletwidth) { @content; }
+	}
+	@else if $fakeretina == true {
+		@content;
+	}
+	@else if $point == "retina" and $retina == true {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 1.5dppx) {
+			@content;
+		}
+	}
+}

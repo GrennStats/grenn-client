@@ -1,3 +1,5 @@
+<app-navigation></app-navigation>
+
 <div class="c-player-profile" *ngIf="stats$ | async as stats">
   <div class="o-container" *ngIf="getPlayerStats(stats.entry) as playerStats">
     <div class="o-grid o-grid--justify-between">
@@ -6,7 +8,7 @@
           <square-image
             class="u-shape-rounded-square"
             [style.width.px]="80"
-            [image]="'tripp' | heroImage"
+            [image]="getMostPlayedHero(stats.entry) | heroImage"
           ></square-image>
         </div>
 
@@ -17,16 +19,16 @@
         </div>
       </div>
 
-      <div class="o-grid u-1/2">
-        <stat-card [value]="playerStats.skill" class="o-grid__item u-1/3">
+      <div class="o-grid o-grid--inside u-1/1 u-2/3@tablet u-1/2@desktop">
+        <stat-card [value]="playerStats.skill" class="o-grid__item u-1/2 u-1/3@tablet">
           {{ "stats:skill-points" | translate }}
         </stat-card>
 
-        <stat-card [value]="playerStats.winrate" class="o-grid__item u-1/3">
+        <stat-card [value]="playerStats.winrate" class="o-grid__item u-1/2 u-1/3@tablet">
           {{ "stats:winrate" | translate }}
         </stat-card>
 
-        <stat-card [value]="playerStats.kda" class="o-grid__item u-1/3">
+        <stat-card [value]="playerStats.kda" class="o-grid__item u-1/2 u-1/3@tablet">
           {{ "stats:kda" | translate }}
         </stat-card>
       </div>

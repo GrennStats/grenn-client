@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import {AppConfig} from "../../app.config";
 
 export interface Stats {
   power_score: number;
@@ -57,12 +58,12 @@ export interface PlayerStats {
 
 @Injectable()
 export class PlayerResource {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
   public getPlayerStats(playerId: string): Observable<PlayerStats> {
     const encodedId = playerId.replace("#", "%23");
 
-    return this.http.get<any>(`https://gigantic-mmr-api.azurewebsites.net/leaderboards/${encodedId}`)
+    return this.http.get<any>(`${this.config.baseUrl}/player/${encodedId}`)
       .map(data => data.data[playerId]);
   }
 }

@@ -10,6 +10,7 @@ import {Store} from "@ngrx/store";
 import {LoadPlayerStatsOnceAction, LoadPlayerStatsAction} from "./state/player.action";
 import {getStats} from "./state/player.reducer";
 import {round2Digits} from "../math.utility";
+import {findKey, sortBy} from "lodash";
 
 export interface Hero {
   name: string;
@@ -46,6 +47,27 @@ export class PlayerComponent implements OnInit {
         return this.store.select(getStats(playerId))
           .filter(data => Boolean(data));
       });
+  }
+
+  protected getHeroKeys(stats: PlayerStats) {
+    if (!stats) {
+      return [];
+    }
+
+    return Object.keys(stats)
+      .filter(hero => hero !== "all");
+  }
+
+  public getMostPlayedHero(stats: PlayerStats): string {
+    if (!stats) {
+      return null;
+    }
+
+    const heroKeys = this.getHeroKeys(stats);
+
+    return sortBy(heroKeys, heroKey => {
+      return stats[heroKey].total.total_games;
+    }).pop();
   }
 
   public getPlayerStats(stats: PlayerStats) {

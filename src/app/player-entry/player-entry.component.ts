@@ -1,5 +1,4 @@
 import {Component, Input} from "@angular/core";
-import {SearchPlayerObject} from "../../state/search.resource";
 
 @Component({
   selector: "player-entry",
@@ -8,5 +7,5 @@ import {SearchPlayerObject} from "../../state/search.resource";
 })
 export class PlayerEntryComponent {
   @Input()
-  public player: SearchPlayerObject;
+  public player;
 }

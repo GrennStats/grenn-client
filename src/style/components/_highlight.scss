@@ -1,0 +1,37 @@
+/* ==========================================================================
+   #HIGHLIGHT
+   ========================================================================== */
+
+.c-highlight {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+  @extend %baseline;
+}
+
+.c-highlight--lean {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.c-highlight__title {
+  font-weight: 300;
+  text-align: center;
+}
+
+.c-highlight__title--main {
+  margin-bottom: 4.5rem;
+  font-size: 2em;
+}
+
+.c-highlight__illustration {
+  width: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  @extend %baseline;
+}
+
+.c-highlight__text {
+  font-weight: 300;
+}
+

@@ -7,7 +7,19 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  height: 350px;
+  padding-bottom: 50px;
+  padding-top: 250px;
   min-height: 25vh;
-  margin-bottom: 1.5rem;
+}
+
+.c-hero--lean {
+  padding-top: 100px;
+  padding-bottom: 75px;
+}
+
+.c-hero__logo {
+  width: 100%;
+  max-width: 250px;
+  height: 100%;
+  margin-bottom: 2.5rem;
 }
