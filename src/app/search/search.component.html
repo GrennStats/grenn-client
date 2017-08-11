@@ -1,6 +1,11 @@
 <header class="c-hero c-hero--lean u-background-secondary">
   <div class="o-container o-container--center">
-      <img src="assets/logo.png" alt="Gigantic Logo" class="c-hero__logo">
+      <img
+        src="assets/logo.svg"
+        class="c-hero__logo"
+        [alt]="'commons:logo-title' | translate"
+        [title]="'commons:logo-title' | translate"
+      >
   </div>
 
   <form class="o-container o-container--center" (ngSubmit)="search(playerName);">

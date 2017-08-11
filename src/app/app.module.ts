@@ -124,6 +124,8 @@ export class AppModule {
       "stats:skill-points": "skill points",
       "stats:level": "level",
 
+      "commons:logo-title": "Grenn Logo",
+
       "search:find-player": "find player",
       "search:enter-name": "Enter your gigantic username...",
       "search:not-found-title": "Well, this is awkward...",
