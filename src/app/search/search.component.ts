@@ -27,6 +27,10 @@ export class SearchComponent implements OnInit {
   }
 
   public search(playerName: string) {
+    if (playerName.length < 4) {
+      return;
+    }
+
     this.store.dispatch(new SearchPlayerOnceAction(playerName));
     this.router.navigate(["/search", playerName]);
   }

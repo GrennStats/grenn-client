@@ -1,4 +1,4 @@
-<div class="c-hero c-hero--lean u-background-secondary">
+<header class="c-hero c-hero--lean u-background-secondary">
   <div class="o-container o-container--center">
       <img src="assets/logo.png" alt="Gigantic Logo" class="c-hero__logo">
   </div>
@@ -6,14 +6,14 @@
   <form class="o-container o-container--center" (ngSubmit)="search(playerName);">
     <input
       type="search"
-      class="c-input c-input--huge p-search-input"
-      [ngModel]="history$ | async"
-      (ngModelChange)="playerName = $event"
+      class="c-input c-input--dark c-input--huge p-search-input"
       name="playerName"
       autofocus
+      [ngModel]="history$ | async"
+      (ngModelChange)="playerName = $event"
       [placeholder]="'search:enter-name' | translate"
     >
   </form>
-</div>
+</header>
 
 <router-outlet></router-outlet>

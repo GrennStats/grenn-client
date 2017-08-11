@@ -1,7 +1,20 @@
 <nav class="c-navigation">
-  <ul class="o-container c-navigation__list">
-    <li class="c-navigation__list-item">
-      <a routerLink="/" class="c-navigation__link">Home</a>
-    </li>
-  </ul>
+  <div class="o-container c-navigation__wrapper">
+    <ul class="c-navigation__list">
+      <li class="c-navigation__list-item">
+        <a routerLink="/" class="c-navigation__link">Home</a>
+      </li>
+    </ul>
+
+    <form (ngSubmit)="search(playerName);">
+      <input
+        type="search"
+        class="c-input c-input--dark"
+        name="playerName"
+        [ngModel]="history$ | async"
+        (ngModelChange)="playerName = $event"
+        [placeholder]="'search:enter-name' | translate"
+      >
+    </form>
+  </div>
 </nav>

@@ -4,6 +4,14 @@
 
 .c-navigation {
   background-color: #121d2f;
+  padding: 0.5rem 1rem;
+}
+
+.c-navigation__wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .c-navigation__list {
@@ -19,5 +27,5 @@
 
 .c-navigation__link {
   text-decoration: none;
-  padding: 0.5em 0.25em;
+  padding: 0.25em;
 }

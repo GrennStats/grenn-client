@@ -10,6 +10,18 @@
   border: 0;
 }
 
+.c-input--dark {
+  background-color: #252d38;
+  transition: background 0.15s ease-in-out;
+  outline: 0;
+  color: #ddd;
+
+  &:focus {
+    background-color: lighten(#252d38, 3%);
+  }
+}
+
+
 .c-input--huge {
   font-size: 1em;
   padding: 0.75em;

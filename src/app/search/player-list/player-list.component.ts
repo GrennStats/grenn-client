@@ -31,6 +31,12 @@ export class PlayerListComponent implements OnInit {
         return params.get("playerId");
       });
 
+      this.playerId$.first().subscribe(playerId => {
+        if (playerId.length < 4) {
+          this.router.navigate(["/"]);
+        }
+      });
+
     this.search$ = this.playerId$
       .switchMap(playerId => {
         this.store.dispatch(new SearchPlayerHistoryAction(playerId));
