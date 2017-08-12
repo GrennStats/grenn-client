@@ -4,7 +4,13 @@
   </div>
 
   <div class="c-card__body c-card__body--hero" *ngFor="let tagStats of stats">
-      <div class="c-card__body__title">{{ tagStats.tag }}</div>
+      <div class="c-card__body__title">
+        {{ tagStats.tag }} -
+
+        <span class="u-color-saturated">
+          {{ tagStats.games.hours }} {{ "stats:hours" | translate }}
+        </span>
+      </div>
 
       <primary-stat
         [description]="'stats:kda' | translate"
