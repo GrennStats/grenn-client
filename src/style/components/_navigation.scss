@@ -4,7 +4,8 @@
 
 .c-navigation {
   background-color: #121d2f;
-  padding: 0.5rem 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .c-navigation__wrapper {
@@ -16,6 +17,7 @@
 
 .c-navigation__list {
   margin: 0;
+  padding: 0;
   list-style: none;
   display: flex;
   flex-flow: row wrap;
