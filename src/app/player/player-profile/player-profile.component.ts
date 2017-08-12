@@ -7,7 +7,8 @@ import {getStats} from "../state/player.reducer";
 import {ParamMap, ActivatedRoute} from "@angular/router";
 import {round2Digits, getPercentage} from "../../math.utility";
 import {HeroStatFactory, HeroStat} from "../../hero/hero-stat.factory";
-import {sortStatsByMostPlayed} from "../../hero/hero.sort";
+import {sortStatsByMostPlayed, sortStatsByTag} from "../../hero/hero.sort";
+import {getHeroTags, TagStatFactory, TagStat} from "../../hero/tag-stat.factory";
 
 @Component({
   selector: "app-player-profile",
@@ -21,7 +22,8 @@ export class PlayerProfileComponent implements OnInit {
   constructor(
     private store: Store<State>,
     private route: ActivatedRoute,
-    private heroStat: HeroStatFactory
+    private heroStat: HeroStatFactory,
+    private tagStat: TagStatFactory
   ) {}
 
   public ngOnInit() {
@@ -48,5 +50,15 @@ export class PlayerProfileComponent implements OnInit {
     const data = heroes.map(hero => this.heroStat.getHeroStat(hero, stats[hero]));
 
     return sortStatsByMostPlayed(data);
+  }
+
+  public getTagStats(stats: PlayerStats): TagStat[] {
+    const tags = getHeroTags();
+
+    const stat = tags.map(tag => {
+      return this.tagStat.getStatsForTag(tag, stats);
+    }).filter(x => x.games.total);
+
+    return sortStatsByTag(stat);
   }
 }

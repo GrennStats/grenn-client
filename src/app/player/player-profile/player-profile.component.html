@@ -13,7 +13,13 @@
 
   <ng-template #notLoading>
 
-    <div class="o-grid o-grid--center">
+    <div class="o-grid">
+      <section class="o-grid__item u-1/1 u-2/6@desktop">
+        <tag-card
+          [stats]="getTagStats(stats.entry)"
+        ></tag-card>
+      </section>
+
       <section class="o-grid__item u-1/1 u-5/6@tablet u-4/6@desktop">
         <hero-card
           *ngFor="let heroStats of getHeroStats(stats.entry)"

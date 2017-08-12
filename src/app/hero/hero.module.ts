@@ -7,6 +7,8 @@ import {HeroNamePipe} from "./hero-name.pipe";
 import {HeroColorPipe} from "./hero-color.pipe";
 import {ComponentsModule} from "../components/components.module";
 import {HeroStatFactory} from "./hero-stat.factory";
+import {TagStatFactory} from "./tag-stat.factory";
+import {TagCardComponent} from "./tag-card/tag-card.component";
 
 @NgModule({
   imports: [
@@ -19,15 +21,18 @@ import {HeroStatFactory} from "./hero-stat.factory";
     HeroImagePipe,
     HeroNamePipe,
     HeroColorPipe,
+    TagCardComponent,
   ],
   exports: [
     HeroCardComponent,
     HeroImagePipe,
     HeroNamePipe,
     HeroColorPipe,
+    TagCardComponent
   ],
   providers: [
-    HeroStatFactory
+    HeroStatFactory,
+    TagStatFactory
   ]
 })
 export class HeroModule {}

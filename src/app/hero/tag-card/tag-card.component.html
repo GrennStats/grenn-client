@@ -1,0 +1,25 @@
+<div class="c-card">
+  <div class="c-card__body c-card__body--hero" *ngFor="let tagStats of stats">
+      <div class="c-card__body__title">{{ tagStats.tag }}</div>
+
+      <primary-stat
+        [description]="'stats:kda' | translate"
+        class="u-color-primary"
+      >{{ tagStats.kda }}</primary-stat>
+
+      <div class="u-hidden-mobile">
+        <primary-stat
+          [description]="'stats:win-loss' | translate"
+        >
+          <span class="u-color-success">{{ tagStats.games.wins }}</span>
+          -
+          <span class="u-color-failure">{{ tagStats.games.losses }}</span>
+        </primary-stat>
+      </div>
+
+      <primary-stat
+        [description]="'stats:winrate' | translate"
+        class="u-color-success"
+      >{{ tagStats.games.winrate }}%</primary-stat>
+  </div>
+</div>

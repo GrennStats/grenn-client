@@ -16,7 +16,6 @@ export const heroes = [
     "color": "",
     "tags": [
       "shooter",
-      "dps"
     ]
   },
   {
@@ -26,7 +25,6 @@ export const heroes = [
     "color": "",
     "tags": [
       "caster",
-      "dps"
     ]
   },
   {

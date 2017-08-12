@@ -15,7 +15,7 @@ export interface GamesStat {
   hours: number;
 }
 
-export class HeroStat {
+export interface HeroStat {
   hero: string;
   kills: StatGroup;
   deaths: StatGroup;
