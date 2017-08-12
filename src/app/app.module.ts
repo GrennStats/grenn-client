@@ -53,6 +53,7 @@ export class AppModule {
     translate.setDefaultLang("en");
     translate.use("en");
     translate.setTranslation("en", {
+      "stats:role-performance": "Performance by role",
       "stats:per-min": "/min",
       "stats:kills": "kills",
       "stats:deaths": "deaths",

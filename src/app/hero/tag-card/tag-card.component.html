@@ -1,4 +1,8 @@
 <div class="c-card">
+  <div class="c-card__title">
+    {{ "stats:role-performance" | translate }}
+  </div>
+
   <div class="c-card__body c-card__body--hero" *ngFor="let tagStats of stats">
       <div class="c-card__body__title">{{ tagStats.tag }}</div>
 
