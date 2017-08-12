@@ -5,7 +5,8 @@ export const heroes = [
     "image": "https://stats.gogigantic.com/images/gigantic-careers/user/aisling.png",
     "color": "#8a2248",
     "tags": [
-
+      "summoner",
+      "utility"
     ]
   },
   {
