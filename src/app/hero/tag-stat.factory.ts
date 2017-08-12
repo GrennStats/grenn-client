@@ -65,7 +65,7 @@ export class TagStatFactory {
     const hours = playedHeroes.map(hero => {
       const stat = stats[hero.key] as StatsType;
 
-      return Math.floor(stat.total.time_played / 3600);
+      return round2Digits(stat.total.time_played / 3600);
     }).reduce((previous, current) => previous + current, 0);
 
     const total = wins + losses;

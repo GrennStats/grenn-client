@@ -37,7 +37,7 @@ export class HeroStatFactory {
     const totalStats: TotalStats = stats.total;
     const wins = totalStats.wins || 0;
     const losses = totalStats.losses || 0;
-    const totalHours = Math.floor(totalStats.time_played / 3600);
+    const totalHours = round2Digits(totalStats.time_played / 3600);
 
     return {
       total: totalStats.total_games,
