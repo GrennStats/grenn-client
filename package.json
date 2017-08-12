@@ -3,13 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "webpack-dev-server --port=4200",
-    "build": "webpack",
-    "test": "karma start ./karma.conf.js",
-    "lint": "ng lint",
-    "e2e": "protractor ./protractor.conf.js",
-    "pree2e": "webdriver-manager update --standalone false --gecko false --quiet"
+    "prepare:deploy": "mv dist/index.html dist/200.html",
+    "deploy": "npm run prepare:deploy && surge -p dist/ -d gigantic-stats.surge.sh",
+    "build:prod": "ng build --target=production --environment=prod",
+    "build:deploy": "npm run build:prod && npm run deploy"
   },
   "private": true,
   "dependencies": {
