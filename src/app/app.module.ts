@@ -64,9 +64,22 @@ export class AppModule {
       "stats:winrate": "winrate",
       "stats:win-loss": "win/loss",
       "stats:wins": "wins",
+      "stats:losses": "losses",
       "stats:hours": "hours",
       "stats:skill-points": "skill points",
       "stats:level": "level",
+      "stats:medals-earned": "medals earned",
+      "stats:damage-dealt": "damage dealt",
+      "stats:healed": "healed",
+      "stats:damage-taken": "damage taken",
+      "stats:guardian-damage": "guardian damage",
+      "stats:wounds-given": "wounds given",
+      "stats:power-earned": "power earned",
+      "stats:summons": "summons",
+
+      "stats:lifetime": "Lifetime stats",
+      "stats:overall": "Overall",
+      "stats:combat": "Fight",
 
       "commons:logo-title": "Grenn Logo",
 

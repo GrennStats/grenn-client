@@ -13,12 +13,14 @@ import {PlayerProfileComponent} from "./player-profile/player-profile.component"
 import {PlayerEffects} from "./state/player.effect";
 import {ComponentsModule} from "../components/components.module";
 import {HeroModule} from "../hero/hero.module";
+import {LifetimeStatsCardComponent} from "./lifetime-stats-card/lifetime-stats-card.component";
 
 @NgModule({
   declarations: [
     PlayerComponent,
     PlayerHeroDetailComponent,
     PlayerProfileComponent,
+    LifetimeStatsCardComponent,
   ],
   imports: [
     CommonModule,

@@ -18,13 +18,19 @@
         <tag-card
           [stats]="getTagStats(stats.entry)"
         ></tag-card>
+
+        <lifetime-stats-card
+          [stats]="stats.entry.all.total">
+        </lifetime-stats-card>
       </section>
 
-      <section class="o-grid__item u-1/1 u-5/6@tablet u-4/6@desktop">
-        <hero-card
+      <section class="o-grid__item u-1/1 u-6/6@tablet u-4/6@desktop">
+        <a
+          class="u-link--none"
           *ngFor="let heroStats of getHeroStats(stats.entry)"
-          [stats]="heroStats"
-        ></hero-card>
+        >
+            <hero-card [stats]="heroStats"></hero-card>
+        </a>
       </section>
     </div>
 

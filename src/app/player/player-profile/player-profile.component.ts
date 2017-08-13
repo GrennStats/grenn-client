@@ -7,7 +7,7 @@ import {getStats} from "../state/player.reducer";
 import {ParamMap, ActivatedRoute} from "@angular/router";
 import {round2Digits, getPercentage} from "../../math.utility";
 import {HeroStatFactory, HeroStat} from "../../hero/hero-stat.factory";
-import {sortStatsByMostPlayed, sortStatsByTag} from "../../hero/hero.sort";
+import {sortStatsByMostPlayed, sortStatsByTag, sortStatsByTime} from "../../hero/hero.sort";
 import {getHeroTags, TagStatFactory, TagStat} from "../../hero/tag-stat.factory";
 
 @Component({
@@ -59,6 +59,6 @@ export class PlayerProfileComponent implements OnInit {
       return this.tagStat.getStatsForTag(tag, stats);
     }).filter(x => x.games.total);
 
-    return sortStatsByTag(stat);
+    return sortStatsByTime(stat);
   }
 }
