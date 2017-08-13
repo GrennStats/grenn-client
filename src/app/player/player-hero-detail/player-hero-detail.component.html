@@ -1,3 +1,41 @@
-<p>
-  player-hero-detail works!
-</p>
+<div class="c-card">
+  <div class="c-card__title" *ngIf="playerId$ | async as playerId">
+    <a [routerLink]="['/', 'player', playerId]">
+      < Back to overview
+    </a>
+  </div>
+</div>
+
+<ng-container *ngIf="stats$ | async as stats">
+    <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
+
+    <ng-template #loading>
+      <loading-spinner ></loading-spinner>
+    </ng-template>
+
+    <ng-template #notLoading>
+
+      <div class="o-grid o-grid--inside">
+        <div class="o-grid__item u-1/4">
+          <div class="c-card">a</div>
+        </div>
+
+        <div class="o-grid__item u-1/4">
+          <div class="c-card">a</div>
+        </div>
+
+        <div class="o-grid__item u-1/4">
+          <div class="c-card">a</div>
+        </div>
+
+        <div class="o-grid__item u-1/4">
+          <div class="c-card">a</div>
+        </div>
+      </div>
+
+      <lifetime-stats-card
+        [stats]="stats.entry.tripp.total">
+      </lifetime-stats-card>
+
+    </ng-template>
+  </ng-container>
