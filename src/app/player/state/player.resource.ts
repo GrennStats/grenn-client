@@ -13,6 +13,7 @@ export interface Stats {
   wounds_given: number;
   summons: number;
   damage_dealt: number;
+  healing_given: number;
   assists: number;
   damage_soaked: number;
   medals_earned: number;
