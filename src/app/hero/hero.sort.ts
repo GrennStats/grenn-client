@@ -25,3 +25,8 @@ export function sortStatsByTag(stats: TagStat[]): TagStat[] {
 
   return sortBy(stats, stat => sortedTags.indexOf(stat.tag));
 }
+
+export function sortStatsByTime(stats: TagStat[]): TagStat[] {
+  return sortBy(stats, stat => -stat.games.hours);
+}
+
