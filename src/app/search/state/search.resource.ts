@@ -20,7 +20,9 @@ export class SearchResource {
   constructor(private http: HttpClient, private config: AppConfig) {}
 
   public searchPlayer(playerId: string): Observable<SearchPlayerResponse> {
-    return this.http.get<any>(`${this.config.baseUrl}/search/${playerId}`)
+    const encodedId = playerId.replace("#", "%23");
+
+    return this.http.get<any>(`${this.config.baseUrl}/search/${encodedId}`)
       .map(data => data.data);
   }
 }

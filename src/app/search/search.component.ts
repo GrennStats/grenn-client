@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   }
 
   public search(playerName: string) {
-    if (playerName.length < 4) {
+    if (!playerName || playerName.length < 4) {
       return;
     }
 

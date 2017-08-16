@@ -7,6 +7,8 @@ import {SearchPlayerOnceAction, SearchPlayerHistoryAction} from "../state/search
 import {Observable} from "rxjs/Observable";
 import {SearchPlayerResponse, SearchPlayerObject} from "../state/search.resource";
 import "rxjs/add/operator/skip";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/switchMap";
 import {sortBy} from "lodash";
 
 @Component({
@@ -38,8 +40,13 @@ export class PlayerListComponent implements OnInit {
       });
 
     this.search$ = this.playerId$
+      .do(playerId => this.store.dispatch(new SearchPlayerHistoryAction(playerId)))
       .switchMap(playerId => {
-        this.store.dispatch(new SearchPlayerHistoryAction(playerId));
+        if (playerId.substr(playerId.length - 5).indexOf("#") === 0) {
+          this.router.navigate(["/player", playerId]);
+          return [];
+        }
+
         this.store.dispatch(new SearchPlayerOnceAction(playerId));
 
         return this.store.select(getSearch(playerId))

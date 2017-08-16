@@ -6,6 +6,16 @@
   </div>
 </div>
 
+<div class="o-container o-container--center" *ngIf="hero$ | async as hero">
+  <square-image
+    class="u-shape-rounded-square"
+    [style.width.px]="100"
+    [image]="hero | heroImage"
+  ></square-image>
+
+  <h1 class="u-1/1 u-text-center">{{ hero | heroName }}</h1>
+</div>
+
 <ng-container *ngIf="stats$ | async as stats">
     <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
 
@@ -15,27 +25,40 @@
 
     <ng-template #notLoading>
 
-      <div class="o-grid o-grid--inside">
-        <div class="o-grid__item u-1/4">
-          <div class="c-card">a</div>
-        </div>
+      <main class="o-grid o-grid--inside" *ngIf="hero$ | async as hero">
+        <section class="o-grid__item u-1/1 u-2/6@desktop">
+          <lifetime-stats-card
+            [stats]="stats.entry[hero].total">
+          </lifetime-stats-card>
+        </section>
 
-        <div class="o-grid__item u-1/4">
-          <div class="c-card">a</div>
-        </div>
+        <section class="o-grid__item u-1/1 u-6/6@tablet u-4/6@desktop">
 
-        <div class="o-grid__item u-1/4">
-          <div class="c-card">a</div>
-        </div>
+          <article *ngIf="getAverageStats(stats.entry[hero]) as avgStats">
+            <div class="c-card c-card--highlight">
+              <div class="c-card__title" *ngIf="playerId$ | async as playerId">
+                Average Game Stats
+              </div>
+            </div>
 
-        <div class="o-grid__item u-1/4">
-          <div class="c-card">a</div>
-        </div>
-      </div>
+            <hero-stats
+              [stats]="avgStats"
+            ></hero-stats>
+          </article>
 
-      <lifetime-stats-card
-        [stats]="stats.entry.tripp.total">
-      </lifetime-stats-card>
+          <!-- Best -->
+          <article *ngIf="getBestStats(stats.entry[hero]) as bestStats">
+            <div class="c-card c-card--highlight">
+              <div class="c-card__title" *ngIf="playerId$ | async as playerId">
+                Best Game Stats
+              </div>
+            </div>
 
+            <hero-stats
+              [stats]="bestStats"
+            ></hero-stats>
+          </article>
+        </section>
+      </main>
     </ng-template>
   </ng-container>

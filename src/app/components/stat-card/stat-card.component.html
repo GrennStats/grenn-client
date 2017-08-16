@@ -1,7 +1,7 @@
-<div class="c-stat-card">
-  <div class="c-stat-card__body">
+<div class="c-card c-stat-card" [ngClass]="classList">
+  <div class="c-card__body c-stat-card__body">
     <div class="c-stat-card__value">
-      {{ value }}
+      {{ value || 0 }}
     </div>
 
     <div class="c-stat-card__description">

@@ -16,7 +16,7 @@
     <div class="o-grid o-grid--inside">
       <section class="o-grid__item u-1/1 u-2/6@desktop">
         <tag-card
-          [stats]="getTagStats(stats.entry)"
+          [stats]="getTagStats(stats.entry) | async"
         ></tag-card>
 
         <lifetime-stats-card
@@ -28,6 +28,7 @@
         <a
           class="u-link--none"
           *ngFor="let heroStats of getHeroStats(stats.entry)"
+          [routerLink]="[heroStats.hero]"
         >
             <hero-card [stats]="heroStats"></hero-card>
         </a>

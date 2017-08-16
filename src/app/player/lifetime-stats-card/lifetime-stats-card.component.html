@@ -39,6 +39,30 @@
     {{ stats.medals_earned }}
   </div>
 
+  <div class="c-card__body c-card__body--stats">
+    <span class="c-subtitle">
+      {{ "stats:wounds-given" | translate }}
+    </span>
+
+    {{ stats.wounds_given }}
+  </div>
+
+  <div class="c-card__body c-card__body--stats">
+    <span class="c-subtitle">
+      {{ "stats:power-earned" | translate }}
+    </span>
+
+    {{ stats.power_score }}
+  </div>
+
+  <div class="c-card__body c-card__body--stats">
+    <span class="c-subtitle">
+      {{ "stats:summons" | translate }}
+    </span>
+
+    {{ stats.summons }}
+  </div>
+
   <!-- Combat  -->
   <div class="c-card__title c-card__title--subtitle">
     {{ "stats:combat" | translate }}
@@ -98,29 +122,5 @@
     </span>
 
     {{ stats.guardian_damage }}
-  </div>
-
-  <div class="c-card__body c-card__body--stats">
-    <span class="c-subtitle">
-      {{ "stats:wounds-given" | translate }}
-    </span>
-
-    {{ stats.wounds_given }}
-  </div>
-
-  <div class="c-card__body c-card__body--stats">
-    <span class="c-subtitle">
-      {{ "stats:power-earned" | translate }}
-    </span>
-
-    {{ stats.power_score }}
-  </div>
-
-  <div class="c-card__body c-card__body--stats">
-    <span class="c-subtitle">
-      {{ "stats:summons" | translate }}
-    </span>
-
-    {{ stats.summons }}
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
 
 @Component({
   selector: "square-image",
@@ -9,7 +9,8 @@ import {Component, Input} from "@angular/core";
       display: block;
       overflow: hidden;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SquareImageComponent {
   @Input()

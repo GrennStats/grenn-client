@@ -14,6 +14,7 @@ import {PlayerEffects} from "./state/player.effect";
 import {ComponentsModule} from "../components/components.module";
 import {HeroModule} from "../hero/hero.module";
 import {LifetimeStatsCardComponent} from "./lifetime-stats-card/lifetime-stats-card.component";
+import {PipesModule} from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {LifetimeStatsCardComponent} from "./lifetime-stats-card/lifetime-stats-c
       PlayerEffects
     ]),
     ComponentsModule,
-    HeroModule
+    HeroModule,
+    PipesModule
   ],
   providers: [PlayerResource],
 })

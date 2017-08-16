@@ -1,94 +1,97 @@
-<article class="c-card">
-  <div class="c-card__body c-card__body--hero">
-    <div class="o-flag o-flag--fit u-1/2">
-      <div class="o-flag__figure">
-        <square-image
-          class="u-shape-rounded-square"
-          [style.width.px]="50"
-          [image]="stats.hero | heroImage"
-        ></square-image>
-      </div>
+<article class="c-hero-card">
+  <div class="c-card u-baseline-none">
+    <div class="c-card__body c-card__body--hero c-hero-card__upper">
+      <div class="o-flag o-flag--fit u-1/2">
+        <div class="o-flag__figure">
+          <square-image
+            class="u-shape-rounded-square"
+            [style.width.px]="50"
+            [image]="stats.hero | heroImage"
+          ></square-image>
+        </div>
 
-      <div class="o-flag__body">
-        {{ stats.hero | heroName }}
+        <div class="o-flag__body">
+          {{ stats.hero | heroName }}
 
-        <div class="u-hidden-mobile">
-          <span class="u-color-saturated u-font-small">
-              {{ stats.games.total }} {{ 'stats:games' | translate }}
-            </span>
-
-            -
-
+          <div class="u-hidden-mobile">
             <span class="u-color-saturated u-font-small">
-              {{ stats.games.hours }} {{ 'stats:hours' | translate }}
-            </span>
+                {{ stats.games.total | shortenValue }} {{ 'stats:games' | translate }}
+              </span>
+
+              -
+
+              <span class="u-color-saturated u-font-small">
+                {{ stats.games.hours | round }} {{ 'stats:hours' | translate }}
+              </span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <primary-stat
-      [description]="'stats:kda' | translate"
-      class="u-color-primary"
-    >{{ stats.kda.value }}</primary-stat>
-
-    <div class="u-hidden-mobile">
       <primary-stat
-        [description]="'stats:win-loss' | translate"
-      >
-        <span class="u-color-success">{{ stats.games.wins }}</span>
-        -
-        <span class="u-color-failure">{{ stats.games.losses }}</span>
-      </primary-stat>
-    </div>
+        [description]="'stats:kda' | translate"
+        class="u-color-primary"
+      >{{ stats.kda.value | round }}</primary-stat>
 
-    <primary-stat
-      [description]="'stats:winrate' | translate"
-      class="u-color-success"
-    >{{ stats.games.winrate }}%</primary-stat>
+      <div class="u-hidden-mobile">
+        <primary-stat
+          [description]="'stats:win-loss' | translate"
+        >
+          <span class="u-color-success">{{ stats.games.wins | round | shortenValue }}</span>
+          -
+          <span class="u-color-failure">{{ stats.games.losses | round | shortenValue }}</span>
+        </primary-stat>
+      </div>
+
+      <primary-stat
+        [description]="'stats:winrate' | translate"
+        class="u-color-success"
+      >{{ stats.games.winrate | round }}%</primary-stat>
+    </div>
   </div>
 
-  <div class="c-card__body">
-    <div class="o-grid o-grid--justify-between o-grid--inside">
+  <div class="c-hero-card__body o-grid o-grid--justify-between">
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar
+        class="c-hero-card__item"
+        [name]="'stats:kills' | translate"
+        [description]="'stats:per-min' | translate"
+        [value]="stats.kills.value | round"
+        [percentage]="stats.kills.percentage"
+        [color]="stats.hero | heroColor"
+      ></stat-bar>
+    </div>
 
-      <div class="o-grid__item u-1/3 u-1/5@tablet">
-         <stat-bar
-          [name]="'stats:kills' | translate"
-          [description]="'stats:per-min' | translate"
-          [value]="stats.kills.value"
-          [percentage]="stats.kills.percentage"
-          [color]="stats.hero | heroColor"
-        ></stat-bar>
-      </div>
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar
+        class="c-hero-card__item"
+        [name]="'stats:deaths' | translate"
+        [description]="'stats:per-min' | translate"
+        [value]="stats.deaths.value | round"
+        [percentage]="stats.deaths.percentage"
+        [color]="stats.hero | heroColor"
+      ></stat-bar>
+    </div>
 
-      <div class="o-grid__item u-1/3 u-1/5@tablet">
-        <stat-bar
-          [name]="'stats:deaths' | translate"
-          [description]="'stats:per-min' | translate"
-          [value]="stats.deaths.value"
-          [percentage]="stats.deaths.percentage"
-          [color]="stats.hero | heroColor"
-        ></stat-bar>
-      </div>
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar
+        class="c-hero-card__item"
+        [name]="'stats:assists' | translate"
+        [description]="'stats:per-min' | translate"
+        [value]="stats.assists.value | round"
+        [percentage]="stats.assists.percentage"
+        [color]="stats.hero | heroColor"
+      ></stat-bar>
+    </div>
 
-      <div class="o-grid__item u-1/3 u-1/5@tablet">
-        <stat-bar
-          [name]="'stats:assists' | translate"
-          [description]="'stats:per-min' | translate"
-          [value]="stats.assists.value"
-          [percentage]="stats.assists.percentage"
-          [color]="stats.hero | heroColor"
-        ></stat-bar>
-      </div>
-
-      <div class="o-grid__item u-1/3 u-1/5@tablet u-hidden-mobile">
-        <stat-bar
-          [name]="'stats:damage' | translate"
-          [description]="'stats:per-min' | translate"
-          [value]="stats.damage.value"
-          [percentage]="stats.damage.percentage"
-          [color]="stats.hero | heroColor"
-        ></stat-bar>
-      </div>
+    <div class="c-hero-card__body__item o-grid__item u-hidden-mobile">
+      <stat-bar
+        class="c-hero-card__item"
+        [name]="'stats:damage' | translate"
+        [description]="'stats:per-min' | translate"
+        [value]="stats.damage.value | round"
+        [percentage]="stats.damage.percentage"
+        [color]="stats.hero | heroColor"
+      ></stat-bar>
     </div>
   </div>
 </article>

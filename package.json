@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "prepare:deploy": "mv dist/index.html dist/200.html",
-    "deploy": "npm run prepare:deploy && surge -p dist/ -d gigantic-stats.surge.sh",
+    "deploy": "npm run prepare:deploy && surge -p dist/ -d grenn.io",
     "build:prod": "ng build --target=production --environment=prod",
     "build:deploy": "npm run build:prod && npm run deploy"
   },
@@ -26,10 +26,16 @@
     "@ngx-translate/core": "^7.1.0",
     "@swimlane/ngx-charts": "^6.0.1",
     "@types/lodash": "^4.14.71",
+    "@types/numeral": "0.0.21",
+    "@types/ramda": "^0.24.7",
+    "angularfire2": "^4.0.0-rc.2",
     "core-js": "^2.4.1",
     "d3": "^4.9.x",
+    "firebase": "^4.2.0",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
+    "numeral": "^2.0.6",
+    "ramda": "^0.24.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

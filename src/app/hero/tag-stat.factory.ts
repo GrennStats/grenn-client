@@ -1,10 +1,9 @@
 import {Injectable} from "@angular/core";
-import {heroes} from "../player/heroes";
 import {PlayerStats, StatsType} from "../player/state/player.resource";
 import {GamesStat} from "./hero-stat.factory";
-import {round2Digits} from "../math.utility";
+import {Hero} from "./hero-resource";
 
-export function getHeroTags(): string[] {
+export function getHeroTags(heroes: Hero[]): string[] {
   const tags = {};
 
   heroes.forEach(hero => {
@@ -26,7 +25,7 @@ export interface TagStat {
 @Injectable()
 export class TagStatFactory {
 
-  public getStatsForTag(tag: string, stats: PlayerStats): TagStat {
+  public getStatsForTag(heroes: Hero[], tag: string, stats: PlayerStats): TagStat {
     const taggedHeroes = heroes.filter(hero => hero.tags.includes(tag));
     const playedHeroes = taggedHeroes.filter(hero => {
       return Boolean(stats[hero.key]);
@@ -65,7 +64,7 @@ export class TagStatFactory {
     const hours = playedHeroes.map(hero => {
       const stat = stats[hero.key] as StatsType;
 
-      return round2Digits(stat.total.time_played / 3600);
+      return stat.total.time_played / 3600;
     }).reduce((previous, current) => previous + current, 0);
 
     const total = wins + losses;
@@ -75,12 +74,12 @@ export class TagStatFactory {
       deaths: deaths,
       kills: kills,
       assists: assists,
-      kda: round2Digits((kills + assists) / Math.max(1, deaths)),
+      kda: (kills + assists) / Math.max(1, deaths),
       games: {
         total: total,
         wins: wins,
         losses: losses,
-        winrate: round2Digits(wins / total * 100),
+        winrate: wins / total * 100,
         hours: hours
       }
     };

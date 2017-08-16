@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ChangeDetectionStrategy} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {State} from "../../reducers";
@@ -9,7 +9,8 @@ import {SearchPlayerOnceAction} from "../../search/state/search.action";
 @Component({
   selector: "app-navigation",
   templateUrl: "./navigation.component.html",
-  styleUrls: ["./navigation.component.scss"]
+  styleUrls: ["./navigation.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements OnInit {
   public playerName: string;

@@ -1,5 +1,7 @@
-export function round2Digits(num: number) {
-  return Math.round(num * 100) / 100;
+import * as numeral from "numeral";
+
+export function round2Digits(num: number): number {
+  return +numeral(num).format("0.00");
 }
 
 export function getPercentage(lower, higher): number {

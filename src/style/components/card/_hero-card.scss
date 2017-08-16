@@ -1,0 +1,31 @@
+/* ==========================================================================
+   #HERO CARD
+   ========================================================================== */
+
+.c-hero-card {
+  @extend %baseline;
+}
+
+.c-hero-card__upper {
+  border-bottom: 0;
+}
+
+.c-hero-card__body {
+  margin-top: 5px;
+  padding: 0;
+}
+
+.c-hero-card__item {
+  background: #fff;
+  display: block;
+  padding: 0.75rem;
+}
+
+.c-hero-card__body__item {
+  padding: 0 5px 0 0;
+  flex: 1 0 0;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}

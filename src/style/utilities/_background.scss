@@ -37,8 +37,24 @@
   background-color: $play-color-saturated-accent;
 }
 
+.u-background-white {
+  background-color: #fff;
+}
+
 .u-background-gigantic {
-  background-image: url("assets/gigantic_background.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+  position: relative;
+  background-color: transparentize($play-color-secondary, 0.1);
+
+  &::after {
+    content: "";
+    background-image: url("assets/landing/gigantic_background.jpg");
+    background-attachment: fixed;
+    background-position: center -250px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

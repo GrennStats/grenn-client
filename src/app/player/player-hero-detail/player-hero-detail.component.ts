@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {HeroStatFactory} from "../../hero/hero-stat.factory";
 import {TagStatFactory} from "../../hero/tag-stat.factory";
-import {PlayerStats} from "../state/player.resource";
+import {PlayerStats, StatsType, Stats} from "../state/player.resource";
 import {Observable} from "rxjs/Observable";
 import {getStats} from "../state/player.reducer";
 
@@ -43,5 +43,13 @@ export class PlayerHeroDetailComponent implements OnInit {
         return this.store.select(getStats(playerId))
           .filter(data => Boolean(data));
       });
+  }
+
+  public getAverageStats(stats: StatsType): Stats {
+    return stats.avg || stats.total;
+  }
+
+  public getBestStats(stats: StatsType): Stats {
+    return stats.best || stats.total;
   }
 }

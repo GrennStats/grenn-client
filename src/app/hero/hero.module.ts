@@ -9,12 +9,18 @@ import {ComponentsModule} from "../components/components.module";
 import {HeroStatFactory} from "./hero-stat.factory";
 import {TagStatFactory} from "./tag-stat.factory";
 import {TagCardComponent} from "./tag-card/tag-card.component";
+import {PipesModule} from "../pipes/pipes.module";
+import {HeroStatsComponent} from "./hero-stats/hero-stats.component";
+import {HeroResource} from "./hero-resource";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule,
+    AngularFireDatabaseModule
   ],
   declarations: [
     HeroCardComponent,
@@ -22,17 +28,20 @@ import {TagCardComponent} from "./tag-card/tag-card.component";
     HeroNamePipe,
     HeroColorPipe,
     TagCardComponent,
+    HeroStatsComponent,
   ],
   exports: [
     HeroCardComponent,
     HeroImagePipe,
     HeroNamePipe,
     HeroColorPipe,
-    TagCardComponent
+    TagCardComponent,
+    HeroStatsComponent
   ],
   providers: [
     HeroStatFactory,
-    TagStatFactory
+    TagStatFactory,
+    HeroResource
   ]
 })
 export class HeroModule {}

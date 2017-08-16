@@ -37,13 +37,13 @@ export class HeroStatFactory {
     const totalStats: TotalStats = stats.total;
     const wins = totalStats.wins || 0;
     const losses = totalStats.losses || 0;
-    const totalHours = round2Digits(totalStats.time_played / 3600);
+    const totalHours = totalStats.time_played / 3600;
 
     return {
       total: totalStats.total_games,
       wins: wins,
       losses: losses,
-      winrate: round2Digits(wins / totalStats.total_games * 100),
+      winrate: wins / totalStats.total_games * 100,
       hours: totalHours
     };
   }
@@ -56,8 +56,8 @@ export class HeroStatFactory {
    */
   protected getStatGroup(value: number, percentage: number): StatGroup {
     return {
-      value: round2Digits(value),
-      percentage: round2Digits(percentage)
+      value: value,
+      percentage: percentage
     };
   }
 

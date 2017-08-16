@@ -8,6 +8,10 @@
   @extend %baseline;
 }
 
+.c-card--highlight {
+  border-top: 3px solid $play-color-secondary;
+}
+
 .c-card__title {
   text-transform: uppercase;
   font-weight: 500;

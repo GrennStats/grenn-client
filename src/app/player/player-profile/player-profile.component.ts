@@ -9,6 +9,7 @@ import {round2Digits, getPercentage} from "../../math.utility";
 import {HeroStatFactory, HeroStat} from "../../hero/hero-stat.factory";
 import {sortStatsByMostPlayed, sortStatsByTag, sortStatsByTime} from "../../hero/hero.sort";
 import {getHeroTags, TagStatFactory, TagStat} from "../../hero/tag-stat.factory";
+import {HeroResource} from "../../hero/hero-resource";
 
 @Component({
   selector: "app-player-profile",
@@ -22,6 +23,7 @@ export class PlayerProfileComponent implements OnInit {
   constructor(
     private store: Store<State>,
     private route: ActivatedRoute,
+    private heroResource: HeroResource,
     private heroStat: HeroStatFactory,
     private tagStat: TagStatFactory
   ) {}
@@ -52,13 +54,16 @@ export class PlayerProfileComponent implements OnInit {
     return sortStatsByMostPlayed(data);
   }
 
-  public getTagStats(stats: PlayerStats): TagStat[] {
-    const tags = getHeroTags();
+  public getTagStats(stats: PlayerStats): Observable<TagStat[]> {
+    return this.heroResource.getHeroes()
+      .map(heroes => {
+        const tags = getHeroTags(heroes);
 
-    const stat = tags.map(tag => {
-      return this.tagStat.getStatsForTag(tag, stats);
-    }).filter(x => x.games.total);
+        const stat = tags.map(tag => {
+          return this.tagStat.getStatsForTag(heroes, tag, stats);
+        }).filter(x => x.games.total);
 
-    return sortStatsByTime(stat);
+        return sortStatsByTime(stat);
+      });
   }
 }
