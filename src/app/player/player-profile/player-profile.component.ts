@@ -14,7 +14,6 @@ import {HeroResource} from "../../hero/hero-resource";
 @Component({
   selector: "app-player-profile",
   templateUrl: "./player-profile.component.html",
-  styleUrls: ["./player-profile.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerProfileComponent implements OnInit {

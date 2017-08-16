@@ -11,7 +11,6 @@ import {getStats} from "../state/player.reducer";
 @Component({
   selector: "app-player-hero-detail",
   templateUrl: "./player-hero-detail.component.html",
-  styleUrls: ["./player-hero-detail.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerHeroDetailComponent implements OnInit {
