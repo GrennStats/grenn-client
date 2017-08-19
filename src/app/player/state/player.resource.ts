@@ -64,7 +64,6 @@ export class PlayerResource {
   public getPlayerStats(playerId: string): Observable<PlayerStats> {
     const encodedId = playerId.replace("#", "%23");
 
-    return this.http.get<any>(`${this.config.baseUrl}/player/${encodedId}`)
-      .map(data => data.data[playerId]);
+    return this.http.get<any>(`${this.config.baseUrl}/player/${encodedId}/stats/current`);
   }
 }
