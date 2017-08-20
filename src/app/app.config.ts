@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 export class AppConfig {
     public get baseUrl() {
         if (environment.production) {
-            return "https://gigantic-stats.herokuapp.com";
+            return "https://api.grenn.io";
         }
 
         return "http://localhost:8080";

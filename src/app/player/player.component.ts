@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PlayerResource, PlayerStats} from "./state/player.resource";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/switchMap";
@@ -28,6 +28,7 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private player: PlayerResource,
     private store: Store<State>
   ) {}
@@ -43,7 +44,16 @@ export class PlayerComponent implements OnInit {
         this.store.dispatch(new LoadPlayerStatsAction(playerId));
 
         return this.store.select(getStats(playerId))
-          .filter(data => Boolean(data));
+          .filter(data => Boolean(data))
+          .do(data => {
+            if (data.error) {
+              const hashIndex = playerId.indexOf("#");
+              const playerIdSearch = playerId.substr(0, hashIndex === -1 ? 0 : hashIndex);
+
+              this.router.navigate(["/search", playerIdSearch]);
+            }
+          })
+          .filter(data => !data.error);
       });
   }
 
@@ -84,7 +94,7 @@ export class PlayerComponent implements OnInit {
     const winrate = wins / stats.all.total.total_games * 100;
 
     return {
-      skill: (stats.all.total.motiga_skill * 100),
+      skill: (stats.all.total.motiga_skill * 100).toFixed(0),
       kda: kda,
       winrate: winrate
     };
