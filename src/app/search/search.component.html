@@ -8,16 +8,24 @@
       >
   </div>
 
-  <form class="o-container o-container--center" (ngSubmit)="search(playerName);">
-    <input
-      type="search"
-      class="c-input c-input--dark c-input--huge p-search-input"
-      name="playerName"
-      autofocus
-      [ngModel]="history$ | async"
-      (ngModelChange)="playerName = $event"
-      [placeholder]="'search:enter-name' | translate"
-    >
+  <form class="o-container o-container--center" (ngSubmit)="search(playerName); closeSuggestion();">
+    <div class="p-search-wrapper" (clickOutside)="closeSuggestion()">
+      <input
+        type="search"
+        class="c-input c-input--dark c-input--huge p-search-input"
+        name="playerName"
+        autofocus
+        autocomplete="off"
+        [ngModel]="history$ | async"
+        (ngModelChange)="playerName = $event"
+        [placeholder]="'search:enter-name' | translate"
+        (click)="openSuggestion()"
+      >
+
+      <suggestion-box
+        *ngIf="openBox$ | async"
+      ></suggestion-box>
+    </div>
   </form>
 </header>
 

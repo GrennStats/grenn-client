@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {State} from "../../reducers";
 import {ActivatedRoute, Router} from "@angular/router";
 import {getSearch, SearchPlayer} from "../state/search.reducer";
-import {SearchPlayerOnceAction, SearchPlayerHistoryAction} from "../state/search.action";
+import {SearchPlayerOnceAction, SearchPlayerHistoryAction, CloseSuggestionBoxAction} from "../state/search.action";
 import {Observable} from "rxjs/Observable";
 import {SearchPlayerResponse, SearchPlayerObject} from "../state/search.resource";
 import "rxjs/add/operator/skip";
@@ -30,6 +30,8 @@ export class PlayerListComponent implements OnInit {
   public ngOnInit() {
     this.playerId$ = this.route.paramMap
       .map(params => {
+        this.store.dispatch(new CloseSuggestionBoxAction);
+
         return params.get("playerId");
       });
 

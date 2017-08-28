@@ -8,6 +8,7 @@ export class AppConfig {
             return "https://api.grenn.io";
         }
 
-        return "http://localhost:8080";
+        return "https://api.grenn.io";
+        // return "http://localhost:8080";
     }
 }

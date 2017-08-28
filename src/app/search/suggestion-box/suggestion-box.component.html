@@ -1,0 +1,11 @@
+<div class="c-suggestion-box" *ngIf="ranking$ | async as ranking">
+  <h2 class="c-suggestion-box__title">
+    {{ "suggestion-box:popular" | translate }}
+  </h2>
+
+  <ul *ngIf="ranking.length" class="c-suggestion-box__list">
+    <li *ngFor="let name of ranking">
+      <a [routerLink]="['/search', name]">{{ name }}</a>
+    </li>
+  </ul>
+</div>

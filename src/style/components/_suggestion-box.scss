@@ -1,0 +1,26 @@
+/* ==========================================================================
+   #SUGGESTION BOX
+   ========================================================================== */
+
+.c-suggestion-box {
+  position: absolute;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #252d38;
+  border-radius: 3px;
+  left: 0;
+  top: calc(100% + 1rem);
+  z-index: 10;
+}
+
+.c-suggestion-box__title {
+  color: #fff;
+}
+
+.c-suggestion-box__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  column-count: 2;
+  column-gap: 1em;
+}

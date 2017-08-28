@@ -1,5 +1,10 @@
 .p-search-input {
+  width: 100%;
+  padding: 1em;
+}
+
+.p-search-wrapper {
   max-width: 100%;
   width: 30rem;
-  padding: 1em;
+  position: relative;
 }

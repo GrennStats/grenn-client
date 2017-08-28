@@ -15,19 +15,23 @@ import {IndexComponent} from "./index/index.component";
 import {PlayerListComponent} from "./player-list/player-list.component";
 import {FormsModule} from "@angular/forms";
 import {PlayerEntryComponent} from "./player-list/player-entry/player-entry.component";
+import {SuggestionBoxComponent} from "./suggestion-box/suggestion-box.component";
+import {DirectivesModule} from "../directives/directives.module";
 
 @NgModule({
   declarations: [
     SearchComponent,
     IndexComponent,
     PlayerListComponent,
-    PlayerEntryComponent
+    PlayerEntryComponent,
+    SuggestionBoxComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
     TranslateModule,
+    DirectivesModule,
     RouterModule.forChild([
       {
         path: "",

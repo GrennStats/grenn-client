@@ -1,4 +1,4 @@
-import {combineReducers} from "@ngrx/store";
+import {combineReducers, Action} from "@ngrx/store";
 import {Map} from "immutable";
 import {EntryState} from "../../state-utility/entry/state";
 import {SearchActionTypes, SearchPlayerHistoryAction} from "./search.action";
@@ -18,6 +18,7 @@ export interface SearchState {
   search: SearchPlayerState;
   history: string;
   ranking: SearchRankingState;
+  suggestion: boolean;
 }
 
 const reducer = combineReducers({
@@ -36,6 +37,17 @@ const reducer = combineReducers({
     SearchActionTypes.LOAD_SEARCH_RANKING,
     SearchActionTypes.LOAD_SEARCH_RANKING_COMPLETE
   ),
+  suggestion: (state = false, action: Action) => {
+    if (action.type === SearchActionTypes.CLOSE_SUGGESTION) {
+      return false;
+    }
+
+    if (action.type === SearchActionTypes.OPEN_SUGGESTION) {
+      return true;
+    }
+
+    return state;
+  }
 });
 
 export function searchReducer(state: SearchState, action) {
@@ -48,6 +60,10 @@ function getSearchEntity(state: SearchState): SearchPlayerState {
 
 function getRankingEntity(state: SearchState): SearchRankingState {
   return state.ranking;
+}
+
+function getSuggestionEntity(state: SearchState): boolean {
+  return state.suggestion;
 }
 
 function getSearchHistoryEntity(state: SearchState): string {
@@ -70,5 +86,10 @@ export const getSearchRanking = compose(
 
 export const getSearchHistory = compose(
   getSearchHistoryEntity,
+  getSearchState
+);
+
+export const showSuggestion = compose(
+  getSuggestionEntity,
   getSearchState
 );

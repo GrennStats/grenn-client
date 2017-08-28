@@ -15,6 +15,9 @@ export const SearchActionTypes = {
   LOAD_SEARCH_RANKING: type("[Search] Ranking Load"),
   LOAD_SEARCH_RANKING_COMPLETE: type("[Search] Ranking Load Complete"),
   LOAD_SEARCH_RANKING_ONCE: type("[Search] Ranking Load Once"),
+
+  OPEN_SUGGESTION: type("[Search] Suggestion Box Open"),
+  CLOSE_SUGGESTION: type("[Search] Suggestion Box Close"),
 }
 
 export class SearchPlayerHistoryAction implements Action {
@@ -61,4 +64,13 @@ export class LoadSearchRankingCompleteAction implements LoadCompleteAction<Searc
   public type = SearchActionTypes.LOAD_SEARCH_RANKING_COMPLETE;
 
   constructor(public payload: SearchRanking, public error?: ErrorState) {}
+}
+
+// Suggestion Box
+export class OpenSuggestionBoxAction implements Action {
+  public type = SearchActionTypes.OPEN_SUGGESTION;
+}
+
+export class CloseSuggestionBoxAction implements Action {
+  public type = SearchActionTypes.CLOSE_SUGGESTION;
 }

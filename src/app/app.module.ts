@@ -7,6 +7,9 @@ import {StoreModule} from "@ngrx/store";
 import {TranslateModule, TranslateService, TranslateLoader} from "@ngx-translate/core";
 import {EffectsModule} from "@ngrx/effects";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {StoreRouterConnectingModule} from "@ngrx/router-store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+
 
 import {AppComponent} from "./app.component";
 import {HttpClientModule} from "@angular/common/http";
@@ -33,9 +36,9 @@ import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/datab
     AngularFireDatabaseModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: TranslateFirebaseLoaderFactory,
-          deps: [AngularFireDatabase]
+        provide: TranslateLoader,
+        useFactory: TranslateFirebaseLoaderFactory,
+        deps: [AngularFireDatabase]
       }
     }),
     RouterModule.forRoot([
@@ -52,6 +55,10 @@ import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/datab
     ]),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 10 //  Retains last n states
+    }),
     ComponentsModule,
     HeroModule
   ],

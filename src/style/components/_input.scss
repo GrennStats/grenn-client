@@ -11,14 +11,9 @@
 }
 
 .c-input--dark {
-  background-color: #252d38;
-  transition: background 0.15s ease-in-out;
+  background-color: lighten(#252d38, 3%);
   outline: 0;
   color: #ddd;
-
-  &:focus {
-    background-color: lighten(#252d38, 3%);
-  }
 }
 
 
