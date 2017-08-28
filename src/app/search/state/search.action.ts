@@ -1,14 +1,20 @@
 import {Action} from "@ngrx/store";
 import {type} from "../../state-utility/action";
 import {ErrorState} from "../../state-utility/entry/error";
-import {LoadMultipleAction, LoadMultipleCompleteAction} from "../../state-utility/load/action";
+import {LoadMultipleAction, LoadMultipleCompleteAction, LoadAction, LoadCompleteAction} from "../../state-utility/load/action";
 import {SearchPlayerResponse} from "./search.resource";
+import {SearchRanking} from "@grenn/contract";
 
 export const SearchActionTypes = {
   SEARCH_HISTORY: type("[Search] Set History"),
+
   SEARCH_PLAYER: type("[Search] Search"),
   SEARCH_PLAYER_COMPLETE: type("[Search] Search Complete"),
   SEARCH_PLAYER_ONCE: type("[Search] Search Once"),
+
+  LOAD_SEARCH_RANKING: type("[Search] Ranking Load"),
+  LOAD_SEARCH_RANKING_COMPLETE: type("[Search] Ranking Load Complete"),
+  LOAD_SEARCH_RANKING_ONCE: type("[Search] Ranking Load Once"),
 }
 
 export class SearchPlayerHistoryAction implements Action {
@@ -17,6 +23,7 @@ export class SearchPlayerHistoryAction implements Action {
   constructor(public playerId: string) {}
 }
 
+// Search
 export class SearchPlayerAction implements LoadMultipleAction {
   public type = SearchActionTypes.SEARCH_PLAYER;
 
@@ -39,4 +46,19 @@ export class SearchPlayerCompleteAction implements LoadMultipleCompleteAction<Se
   constructor(public playerId: string, public payload: SearchPlayerResponse, public error?: ErrorState) {}
 
   public get id(): string { return this.playerId; }
+}
+
+// Ranking
+export class LoadSearchRankingAction implements LoadAction {
+  public type = SearchActionTypes.LOAD_SEARCH_RANKING;
+}
+
+export class LoadSearchRankingOnceAction implements Action {
+  public type = SearchActionTypes.LOAD_SEARCH_RANKING_ONCE;
+}
+
+export class LoadSearchRankingCompleteAction implements LoadCompleteAction<SearchRanking> {
+  public type = SearchActionTypes.LOAD_SEARCH_RANKING_COMPLETE;
+
+  constructor(public payload: SearchRanking, public error?: ErrorState) {}
 }
