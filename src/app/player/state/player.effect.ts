@@ -7,7 +7,12 @@ import {Effect, Actions} from "@ngrx/effects";
 import {Injectable} from "@angular/core";
 import {createErrorObject} from "../../state-utility/entry/error";
 import {State} from "../../reducers";
-import {LoadPlayerStatsAction, LoadPlayerStatsCompleteAction, PlayerActionTypes, LoadPlayerStatsOnceAction} from "./player.action";
+import {
+  LoadPlayerCurrentStatsAction,
+  LoadPlayerCurrentStatsCompleteAction,
+  PlayerActionTypes,
+  LoadPlayerCurrentStatsOnceAction
+} from "./player.action";
 import {PlayerResource} from "./player.resource";
 import {getStats} from "./player.reducer";
 
@@ -20,21 +25,21 @@ export class PlayerEffects {
   ) {}
 
   @Effect()
-  public loadStats$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_STATS)
-    .mergeMap((action: LoadPlayerStatsAction) => {
+  public loadStats$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_CURRENT_STATS)
+    .mergeMap((action: LoadPlayerCurrentStatsAction) => {
       return this.resource.getPlayerStats(action.playerId)
-        .map(data => new LoadPlayerStatsCompleteAction(action.playerId, data))
-        .catch(error => of(new LoadPlayerStatsCompleteAction(action.playerId, null, createErrorObject(error))));
+        .map(data => new LoadPlayerCurrentStatsCompleteAction(action.playerId, data))
+        .catch(error => of(new LoadPlayerCurrentStatsCompleteAction(action.playerId, null, createErrorObject(error))));
     });
 
 
   @Effect()
-  public loadStatsOnce$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_STATS_ONCE)
-    .mergeMap((action: LoadPlayerStatsOnceAction) => {
+  public loadStatsOnce$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_CURRENT_STATS_ONCE)
+    .mergeMap((action: LoadPlayerCurrentStatsOnceAction) => {
       return this.state$.select(getStats(action.playerId))
         .first()
         .filter(data => !Boolean(data) || data.error)
         .map(user => action);
     })
-    .map((action: LoadPlayerStatsOnceAction) => new LoadPlayerStatsAction(action.playerId));
+    .map((action: LoadPlayerCurrentStatsOnceAction) => new LoadPlayerCurrentStatsAction(action.playerId));
 }

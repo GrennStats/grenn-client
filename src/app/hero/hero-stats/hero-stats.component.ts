@@ -1,5 +1,5 @@
 import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
-import {TotalStats} from "../../player/state/player.resource";
+import {TotalStats} from "@grenn/contract";
 
 @Component({
   selector: "hero-stats",

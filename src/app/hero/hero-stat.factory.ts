@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {getPercentage, round2Digits} from "../math.utility";
-import {TotalStats, Stats, StatsType} from "../player/state/player.resource";
+import {TotalStats, Stats, StatsType} from "@grenn/contract";
 
 export interface StatGroup {
   value: number;

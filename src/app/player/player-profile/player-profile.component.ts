@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectionStrategy} from "@angular/core";
-import {PlayerStats, TotalStats, Stats} from "../state/player.resource";
+import {CurrentStats, TotalStats, Stats} from "@grenn/contract";
 import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {State} from "../../reducers";
@@ -17,7 +17,7 @@ import {HeroResource} from "../../hero/hero-resource";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerProfileComponent implements OnInit {
-  public stats$: Observable<PlayerStats>;
+  public stats$: Observable<CurrentStats>;
 
   constructor(
     private store: Store<State>,
@@ -37,7 +37,7 @@ export class PlayerProfileComponent implements OnInit {
       });
   }
 
-  protected getHeroKeys(stats: PlayerStats) {
+  protected getHeroKeys(stats: CurrentStats) {
     if (!stats) {
       return [];
     }
@@ -46,14 +46,14 @@ export class PlayerProfileComponent implements OnInit {
       .filter(hero => hero !== "all");
   }
 
-  public getHeroStats(stats: PlayerStats): HeroStat[] {
+  public getHeroStats(stats: CurrentStats): HeroStat[] {
     const heroes = this.getHeroKeys(stats);
     const data = heroes.map(hero => this.heroStat.getHeroStat(hero, stats[hero]));
 
     return sortStatsByMostPlayed(data);
   }
 
-  public getTagStats(stats: PlayerStats): Observable<TagStat[]> {
+  public getTagStats(stats: CurrentStats): Observable<TagStat[]> {
     return this.heroResource.getHeroes()
       .map(heroes => {
         const tags = getHeroTags(heroes);

@@ -1,15 +1,16 @@
 import {Component, OnInit, ChangeDetectionStrategy} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PlayerResource, PlayerStats} from "./state/player.resource";
+import {PlayerResource} from "./state/player.resource";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import {State} from "../reducers";
 import {Store} from "@ngrx/store";
-import {LoadPlayerStatsOnceAction, LoadPlayerStatsAction} from "./state/player.action";
+import {LoadPlayerCurrentStatsOnceAction, LoadPlayerCurrentStatsAction} from "./state/player.action";
 import {getStats} from "./state/player.reducer";
 import {findKey, sortBy} from "lodash";
+import {CurrentStats} from "@grenn/contract";
 
 export interface Hero {
   name: string;
@@ -22,8 +23,7 @@ export interface Hero {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerComponent implements OnInit {
-  // public heroes: Hero[] = require("./heroes.json");
-  public stats$: Observable<PlayerStats>;
+  public stats$: Observable<CurrentStats>;
   public playerId$: Observable<string>;
 
   constructor(
@@ -41,7 +41,7 @@ export class PlayerComponent implements OnInit {
 
     this.stats$ = this.playerId$
       .switchMap(playerId => {
-        this.store.dispatch(new LoadPlayerStatsAction(playerId));
+        this.store.dispatch(new LoadPlayerCurrentStatsAction(playerId));
 
         return this.store.select(getStats(playerId))
           .filter(data => Boolean(data))
@@ -59,11 +59,11 @@ export class PlayerComponent implements OnInit {
 
   public reloadData() {
     this.playerId$.first().subscribe(playerId => {
-      this.store.dispatch(new LoadPlayerStatsAction(playerId));
+      this.store.dispatch(new LoadPlayerCurrentStatsAction(playerId));
     });
   }
 
-  protected getHeroKeys(stats: PlayerStats) {
+  protected getHeroKeys(stats: CurrentStats) {
     if (!stats) {
       return [];
     }
@@ -72,7 +72,7 @@ export class PlayerComponent implements OnInit {
       .filter(hero => hero !== "all");
   }
 
-  public getMostPlayedHero(stats: PlayerStats): string {
+  public getMostPlayedHero(stats: CurrentStats): string {
     if (!stats) {
       return null;
     }
@@ -84,7 +84,7 @@ export class PlayerComponent implements OnInit {
     }).pop();
   }
 
-  public getPlayerStats(stats: PlayerStats) {
+  public getPlayerStats(stats: CurrentStats) {
     if (!stats) {
       return null;
     }

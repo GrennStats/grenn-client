@@ -1,30 +1,30 @@
 import {combineReducers} from "@ngrx/store";
 import {Map} from "immutable";
-import {PlayerStats} from "./player.resource";
 import {EntryState} from "../../state-utility/entry/state";
 import {PlayerActionTypes} from "./player.action";
 import {createMultipleLoadReducer} from "../../state-utility/load/reducer";
 import {compose} from "@ngrx/store";
 import {createLoadSelector} from "../../state-utility/load/selector";
 import {State} from "../../reducers";
+import {CurrentStats} from "@grenn/contract";
 
-export interface PlayerStateStats extends Map<number, EntryState<PlayerStats>> {}
+export type PlayerStateStats = Map<number, EntryState<CurrentStats>>;
 
 export interface PlayerStatsState {
-  stats: PlayerStateStats;
+  currentStats: PlayerStateStats;
 }
 
 export function playerReducer(state: PlayerStatsState, action) {
   return combineReducers({
-    stats: createMultipleLoadReducer(
-      PlayerActionTypes.LOAD_PLAYER_STATS,
-      PlayerActionTypes.LOAD_PLAYER_STATS_COMPLETE
+    currentStats: createMultipleLoadReducer(
+      PlayerActionTypes.LOAD_PLAYER_CURRENT_STATS,
+      PlayerActionTypes.LOAD_PLAYER_CURRENT_STATS_COMPLETE
     ),
   })(state, action);
 }
 
-function getStatsEntity(state: PlayerStatsState): PlayerStateStats {
-  return state.stats;
+function getCurrentStatsEntity(state: PlayerStatsState): PlayerStateStats {
+  return state.currentStats;
 }
 
 function getPlayerState(state: State): PlayerStatsState {
@@ -32,6 +32,6 @@ function getPlayerState(state: State): PlayerStatsState {
 }
 
 export const getStats = createLoadSelector<PlayerStateStats>(compose(
-  getStatsEntity,
+  getCurrentStatsEntity,
   getPlayerState
 ));

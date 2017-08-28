@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {PlayerStats, StatsType} from "../player/state/player.resource";
+import {CurrentStats, StatsType} from "@grenn/contract";
 import {GamesStat} from "./hero-stat.factory";
 import {Hero} from "./hero-resource";
 
@@ -25,7 +25,7 @@ export interface TagStat {
 @Injectable()
 export class TagStatFactory {
 
-  public getStatsForTag(heroes: Hero[], tag: string, stats: PlayerStats): TagStat {
+  public getStatsForTag(heroes: Hero[], tag: string, stats: CurrentStats): TagStat {
     const taggedHeroes = heroes.filter(hero => hero.tags.includes(tag));
     const playedHeroes = taggedHeroes.filter(hero => {
       return Boolean(stats[hero.key]);

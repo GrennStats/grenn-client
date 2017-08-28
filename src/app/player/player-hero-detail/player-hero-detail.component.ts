@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {HeroStatFactory} from "../../hero/hero-stat.factory";
 import {TagStatFactory} from "../../hero/tag-stat.factory";
-import {PlayerStats, StatsType, Stats} from "../state/player.resource";
+import {CurrentStats, StatsType, Stats} from "@grenn/contract";
 import {Observable} from "rxjs/Observable";
 import {getStats} from "../state/player.reducer";
 
@@ -15,7 +15,7 @@ import {getStats} from "../state/player.reducer";
 })
 export class PlayerHeroDetailComponent implements OnInit {
 
-  public stats$: Observable<PlayerStats>;
+  public stats$: Observable<CurrentStats>;
   public hero$: Observable<string>;
   public playerId$: Observable<string>;
 
