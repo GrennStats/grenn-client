@@ -1,6 +1,7 @@
 import * as fromRouter from "@ngrx/router-store";
 import {playerReducer, PlayerStatsState} from "./player/state/player.reducer";
 import {searchReducer, SearchState} from "./search/state/search.reducer";
+import {analyticsMetaReducer} from "./app.analytics";
 
 export interface State {
     router: fromRouter.RouterReducerState;
@@ -9,7 +10,7 @@ export interface State {
 }
 
 export const reducers = {
-    router: fromRouter.routerReducer,
+    router: analyticsMetaReducer(fromRouter.routerReducer),
     player: playerReducer,
     search: searchReducer
 };
