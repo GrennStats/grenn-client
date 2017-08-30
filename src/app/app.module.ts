@@ -1,5 +1,5 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
+import {RouterModule, PreloadAllModules} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -52,7 +52,7 @@ import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/datab
       },
       // 404 Page
       {path: "**", redirectTo: ""}
-    ]),
+    ], {preloadingStrategy: PreloadAllModules}),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
