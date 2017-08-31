@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from "@angular/core";
+import {Pipe, PipeTransform, ChangeDetectorRef} from "@angular/core";
 import {find} from "lodash";
 import {Observable} from "rxjs/Observable";
 import {HeroResource, Hero} from "./hero-resource";
@@ -10,9 +10,11 @@ import {HeroResource, Hero} from "./hero-resource";
 export class HeroColorPipe implements PipeTransform {
   private heroes: Hero[];
 
-  constructor(private hero: HeroResource) {
-    this.hero.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+  constructor(private hero: HeroResource, private change: ChangeDetectorRef) {
+    this.hero.getHeroes().subscribe(heroes => {
+      this.heroes = heroes;
+      this.change.markForCheck();
+    });
   }
 
   public transform(heroKey: string): string {

@@ -14,7 +14,8 @@ import {
   LoadPlayerCurrentStatsOnceAction
 } from "./player.action";
 import {PlayerResource} from "./player.resource";
-import {getStats} from "./player.reducer";
+import {getStats, getTimelineStats} from "./player.reducer";
+import {LoadPlayerTimelineStatsAction, LoadPlayerTimelineStatsCompleteAction, LoadPlayerTimelineStatsOnceAction} from "./player.action";
 
 @Injectable()
 export class PlayerEffects {
@@ -42,4 +43,23 @@ export class PlayerEffects {
         .map(user => action);
     })
     .map((action: LoadPlayerCurrentStatsOnceAction) => new LoadPlayerCurrentStatsAction(action.playerId));
+
+  @Effect()
+  public loadTimelineStats$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_TIMELINE_STATS)
+    .mergeMap((action: LoadPlayerTimelineStatsAction) => {
+      return this.resource.getPlayerTimelineStats(action.playerId)
+        .map(data => new LoadPlayerTimelineStatsCompleteAction(action.playerId, data))
+        .catch(error => of(new LoadPlayerTimelineStatsCompleteAction(action.playerId, null, createErrorObject(error))));
+    });
+
+
+  @Effect()
+  public loadTimelineStatsOnce$ = this.actions$.ofType(PlayerActionTypes.LOAD_PLAYER_TIMELINE_STATS_ONCE)
+    .mergeMap((action: LoadPlayerTimelineStatsOnceAction) => {
+      return this.state$.select(getTimelineStats(action.playerId))
+        .first()
+        .filter(data => !Boolean(data) || data.error)
+        .map(user => action);
+    })
+    .map((action: LoadPlayerTimelineStatsOnceAction) => new LoadPlayerTimelineStatsAction(action.playerId));
 }

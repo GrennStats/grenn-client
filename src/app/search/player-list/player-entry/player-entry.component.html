@@ -2,11 +2,10 @@
   <div class="c-card__body c-card__body--hero">
     <div class="o-flag">
       <div class="o-flag__figure">
-        <square-image
-          class="u-shape-rounded-square"
+        <hero-image
           [style.width.px]="50"
-          [image]="player.favorite_hero | heroImage"
-        ></square-image>
+          [hero]="player.favorite_hero"
+        ></hero-image>
       </div>
 
       <div class="o-flag__body">

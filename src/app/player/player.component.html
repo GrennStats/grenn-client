@@ -4,13 +4,11 @@
   <div class="o-container" *ngIf="getPlayerStats(stats.entry) as playerStats">
     <div class="o-grid o-grid--inside o-grid--justify-between">
       <div class="o-grid__item o-flag">
-        <div class="o-flag__figure">
-          <square-image
-            class="u-shape-rounded-square"
-            [style.width.px]="80"
-            [image]="getMostPlayedHero(stats.entry) | heroImage"
-          ></square-image>
-        </div>
+        <hero-image
+          class="o-flag__figure"
+          [style.width.px]="80"
+          [hero]="getMostPlayedHero(stats.entry)"
+        ></hero-image>
 
         <div class="o-flag__body">
             <div class="c-player-profile__name">

@@ -7,7 +7,7 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import {State} from "../reducers";
 import {Store} from "@ngrx/store";
-import {LoadPlayerCurrentStatsOnceAction, LoadPlayerCurrentStatsAction} from "./state/player.action";
+import {LoadPlayerCurrentStatsOnceAction, LoadPlayerCurrentStatsAction, LoadPlayerTimelineStatsAction} from "./state/player.action";
 import {getStats} from "./state/player.reducer";
 import {findKey, sortBy} from "lodash";
 import {CurrentStats} from "@grenn/contract";
@@ -42,9 +42,10 @@ export class PlayerComponent implements OnInit {
     this.stats$ = this.playerId$
       .switchMap(playerId => {
         this.store.dispatch(new LoadPlayerCurrentStatsAction(playerId));
+        this.store.dispatch(new LoadPlayerTimelineStatsAction(playerId));
 
         return this.store.select(getStats(playerId))
-          .filter(data => Boolean(data))
+          .filter(Boolean)
           .do(data => {
             if (data.error) {
               const hashIndex = playerId.indexOf("#");

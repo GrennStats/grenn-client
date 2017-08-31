@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import {AppConfig} from "../../app.config";
-import {CurrentStats} from "@grenn/contract";
+import {CurrentStats, StatsTimeline} from "@grenn/contract";
 
 @Injectable()
 export class PlayerResource {
@@ -12,6 +12,12 @@ export class PlayerResource {
   public getPlayerStats(playerId: string): Observable<CurrentStats> {
     const encodedId = playerId.replace("#", "%23");
 
-    return this.http.get<any>(`${this.config.baseUrl}/player/${encodedId}/stats/current`);
+    return this.http.get<CurrentStats>(`${this.config.baseUrl}/player/${encodedId}/stats/current`);
+  }
+
+  public getPlayerTimelineStats(playerId: string): Observable<StatsTimeline> {
+    const encodedId = playerId.replace("#", "%23");
+
+    return this.http.get<StatsTimeline>(`${this.config.baseUrl}/player/${encodedId}/stats/timeline`);
   }
 }

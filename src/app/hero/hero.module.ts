@@ -13,6 +13,7 @@ import {PipesModule} from "../pipes/pipes.module";
 import {HeroStatsComponent} from "./hero-stats/hero-stats.component";
 import {HeroResource} from "./hero-resource";
 import {AngularFireDatabaseModule} from "angularfire2/database";
+import {HeroImageComponent} from "./hero-image/hero-image.component";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
     HeroColorPipe,
     TagCardComponent,
     HeroStatsComponent,
+    HeroImageComponent,
   ],
   exports: [
     HeroCardComponent,
@@ -36,7 +38,8 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
     HeroNamePipe,
     HeroColorPipe,
     TagCardComponent,
-    HeroStatsComponent
+    HeroStatsComponent,
+    HeroImageComponent,
   ],
   providers: [
     HeroStatFactory,

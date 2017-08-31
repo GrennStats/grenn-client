@@ -7,11 +7,10 @@
 </div>
 
 <div class="o-container o-container--center" *ngIf="hero$ | async as hero">
-  <square-image
-    class="u-shape-rounded-square"
+  <hero-image
     [style.width.px]="100"
-    [image]="hero | heroImage"
-  ></square-image>
+    [hero]="hero"
+  ></hero-image>
 
   <h1 class="u-1/1 u-text-center">{{ hero | heroName }}</h1>
 </div>

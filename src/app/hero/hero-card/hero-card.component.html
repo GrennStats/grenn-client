@@ -3,11 +3,10 @@
     <div class="c-card__body c-card__body--hero c-hero-card__upper">
       <div class="o-flag o-flag--fit u-1/2">
         <div class="o-flag__figure">
-          <square-image
-            class="u-shape-rounded-square"
+          <hero-image
             [style.width.px]="50"
-            [image]="stats.hero | heroImage"
-          ></square-image>
+            [hero]="stats.hero"
+          ></hero-image>
         </div>
 
         <div class="o-flag__body">
