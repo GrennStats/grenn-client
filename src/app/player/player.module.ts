@@ -15,6 +15,7 @@ import {ComponentsModule} from "../components/components.module";
 import {HeroModule} from "../hero/hero.module";
 import {LifetimeStatsCardComponent} from "./lifetime-stats-card/lifetime-stats-card.component";
 import {PipesModule} from "../pipes/pipes.module";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {PipesModule} from "../pipes/pipes.module";
     CommonModule,
     HttpClientModule,
     TranslateModule,
+    NgxChartsModule,
     RouterModule.forChild([
       {
         path: "",

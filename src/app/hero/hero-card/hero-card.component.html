@@ -84,11 +84,22 @@
 
     <div class="c-hero-card__body__item o-grid__item u-hidden-mobile">
       <stat-bar
+        *ngIf="stats.damage.value >= stats.heal.value"
         class="c-hero-card__item"
         [name]="'stats:damage' | translate"
         [description]="'stats:per-min' | translate"
         [value]="stats.damage.value | round"
         [percentage]="stats.damage.percentage"
+        [color]="stats.hero | heroColor"
+      ></stat-bar>
+
+      <stat-bar
+        *ngIf="stats.damage.value < stats.heal.value"
+        class="c-hero-card__item"
+        [name]="'stats:healing' | translate"
+        [description]="'stats:per-min' | translate"
+        [value]="stats.heal.value | round"
+        [percentage]="stats.heal.percentage"
         [color]="stats.hero | heroColor"
       ></stat-bar>
     </div>

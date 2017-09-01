@@ -21,6 +21,7 @@ export interface HeroStat {
   deaths: StatGroup;
   assists: StatGroup;
   damage: StatGroup;
+  heal: StatGroup;
   kda: StatGroup;
   games: GamesStat;
 }
@@ -75,7 +76,7 @@ export class HeroStatFactory {
     const killsP = getPercentage(killsPm, 1);
 
     const deathsPm = deaths / totalMinutes;
-    const deathsP = getPercentage(deathsPm, 1);
+    const deathsP = 100 - getPercentage(deathsPm, 1);
 
     const assistsPm = assists / totalMinutes;
     const assistsP = getPercentage(assistsPm, 1);
@@ -83,8 +84,11 @@ export class HeroStatFactory {
     const kda = (kills + assists) / Math.max(1, deaths);
     const kdaP = getPercentage(kda, bestStats.kda);
 
-    const damagePm = totalStats.damage_dealt / totalMinutes;
+    const damagePm = (totalStats.damage_dealt || 0) / totalMinutes;
     const damageP = getPercentage(damagePm, 1);
+
+    const healPm = (totalStats.healing_given || 0) / totalMinutes;
+    const healP = getPercentage(healPm, 1);
 
     const wins = totalStats.wins || 0;
     const losses = totalStats.losses || 0;
@@ -96,6 +100,7 @@ export class HeroStatFactory {
       deaths: this.getStatGroup(deathsPm, deathsP),
       assists: this.getStatGroup(assistsPm, assistsP),
       damage: this.getStatGroup(damagePm, damageP),
+      heal: this.getStatGroup(healPm, healP),
       kda: this.getStatGroup(kda, kdaP),
     };
   }
