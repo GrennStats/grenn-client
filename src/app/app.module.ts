@@ -24,7 +24,7 @@ import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/datab
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
