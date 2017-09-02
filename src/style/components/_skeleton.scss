@@ -1,0 +1,62 @@
+/* ==========================================================================
+   #SKELETON
+   ========================================================================== */
+
+.c-skeleton {
+
+}
+
+%c-skeleton__animation {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background-color: $play-color-saturated;
+  background-image: linear-gradient(to right, #eeeeee 8%, $play-color-saturated 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+}
+
+/**
+ * [1]: Emulate line height
+ */
+.c-skeleton__text {
+  height: 0.8em;
+  width: 65%;
+  margin-top: 0.3em; // [1]
+  margin-bottom: 0.3em; // [1]
+  @extend %c-skeleton__animation;
+}
+
+.c-skeleton__text--full {
+  width: 100%;
+}
+
+.c-skeleton__text--big {
+  width: 75%;
+}
+
+.c-skeleton__text--bigger {
+  width: 85%;
+}
+
+.c-skeleton__text--small {
+  width: 55%;
+}
+
+.c-skeleton__text--smaller {
+  width: 45%;
+}
+
+.c-skeleton__text--tiny {
+  width: 35%;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}

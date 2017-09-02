@@ -1,3 +1,55 @@
-<p>
-  player-skeleton works!
-</p>
+<div class="c-player-profile">
+  <div class="o-container">
+    <div class="o-grid o-grid--inside o-grid--justify-between">
+      <div class="o-grid__item o-flag">
+        <hero-image-skeleton
+          class="o-flag__figure"
+          [style.width.px]="80"
+        ></hero-image-skeleton>
+
+        <div class="o-flag__body">
+            <div class="c-player-profile__name">
+              <div class="c-skeleton__text"></div>
+            </div>
+
+            <div class="c-player-profile__actions">
+              <app-button
+                class="c-button--primary"
+                [disabled]="true"
+              >
+                {{ "profile:reload-data" | translate }}
+              </app-button>
+
+              <app-button
+                class="c-button--primary"
+                [disabled]="true"
+              >
+                {{ "profile:follow" | translate }}
+              </app-button>
+            </div>
+        </div>
+      </div>
+
+      <div class="o-grid__item o-grid o-grid--inside-half u-1/1 u-2/3@tablet u-1/2@desktop">
+        <div class="o-grid__item u-1/2 u-1/3@tablet">
+          <stat-card-skeleton class="u-baseline-none">
+            {{ "stats:skill-points" | translate }}
+          </stat-card-skeleton>
+        </div>
+
+        <div class="o-grid__item u-1/2 u-1/3@tablet">
+          <stat-card-skeleton class="u-baseline-none">
+            {{ "stats:winrate" | translate }}
+          </stat-card-skeleton>
+        </div>
+
+        <div class="o-grid__item u-1/2 u-1/3@tablet">
+          <stat-card-skeleton class="u-baseline-none">
+            {{ "stats:kda" | translate }}
+          </stat-card-skeleton>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

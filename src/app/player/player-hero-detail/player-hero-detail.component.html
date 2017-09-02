@@ -19,7 +19,7 @@
     <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
 
     <ng-template #loading>
-      <loading-spinner ></loading-spinner>
+      <player-hero-detail-skeleton></player-hero-detail-skeleton>
     </ng-template>
 
     <ng-template #notLoading>

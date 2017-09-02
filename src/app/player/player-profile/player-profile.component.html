@@ -5,10 +5,10 @@
 ></ngx-charts-advanced-pie-chart> -->
 
 <ng-container *ngIf="stats$ | async as stats">
-  <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
+  <div *ngIf="stats && stats.loading && !stats.entry; then loading else loading;"></div>
 
   <ng-template #loading>
-    <loading-spinner ></loading-spinner>
+    <player-profile-skeleton></player-profile-skeleton>
   </ng-template>
 
   <ng-template #notLoading>
