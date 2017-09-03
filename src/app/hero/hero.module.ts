@@ -14,6 +14,10 @@ import {HeroStatsComponent} from "./hero-stats/hero-stats.component";
 import {HeroResource} from "./hero-resource";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {HeroImageComponent} from "./hero-image/hero-image.component";
+import {HeroCardSkeletonComponent} from "./hero-card/hero-card-skeleton/hero-card-skeleton.component";
+import {HeroStatsSkeletonComponent} from "./hero-stats/hero-stats-skeleton/hero-stats-skeleton.component";
+import {TagCardSkeletonComponent} from "./tag-card/tag-card-skeleton/tag-card-skeleton.component";
+import {HeroImageSkeletonComponent} from "./hero-image/hero-image-skeleton/hero-image-skeleton.component";
 
 @NgModule({
   imports: [
@@ -31,6 +35,10 @@ import {HeroImageComponent} from "./hero-image/hero-image.component";
     TagCardComponent,
     HeroStatsComponent,
     HeroImageComponent,
+    HeroCardSkeletonComponent,
+    HeroStatsSkeletonComponent,
+    TagCardSkeletonComponent,
+    HeroImageSkeletonComponent,
   ],
   exports: [
     HeroCardComponent,
@@ -40,6 +48,10 @@ import {HeroImageComponent} from "./hero-image/hero-image.component";
     TagCardComponent,
     HeroStatsComponent,
     HeroImageComponent,
+    HeroCardSkeletonComponent,
+    HeroStatsSkeletonComponent,
+    TagCardSkeletonComponent,
+    HeroImageSkeletonComponent,
   ],
   providers: [
     HeroStatFactory,

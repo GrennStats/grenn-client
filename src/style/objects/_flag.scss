@@ -24,9 +24,11 @@
 .o-flag {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .o-flag--fit {
+  width: initial;
   display: inline-flex;
 }
 

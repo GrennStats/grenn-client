@@ -10,6 +10,8 @@ import {CommonModule} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import {StatCardSkeletonComponent} from "./stat-card/stat-card-skeleton/stat-card-skeleton.component";
+import {StatBarSkeletonComponent} from "./stat-bar/stat-bar-skeleton/stat-bar-skeleton.component";
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import {RouterModule} from "@angular/router";
     StatCardComponent,
     ButtonComponent,
     LoadingSpinnerComponent,
-    NavigationComponent
+    NavigationComponent,
+    StatCardSkeletonComponent,
+    StatBarSkeletonComponent
   ],
   exports: [
     StatsBarComponent,
@@ -34,7 +38,9 @@ import {RouterModule} from "@angular/router";
     StatCardComponent,
     ButtonComponent,
     LoadingSpinnerComponent,
-    NavigationComponent
+    NavigationComponent,
+    StatCardSkeletonComponent,
+    StatBarSkeletonComponent
   ]
 })
 export class ComponentsModule {}

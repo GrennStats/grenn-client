@@ -17,6 +17,9 @@ import {FormsModule} from "@angular/forms";
 import {PlayerEntryComponent} from "./player-list/player-entry/player-entry.component";
 import {SuggestionBoxComponent} from "./suggestion-box/suggestion-box.component";
 import {DirectivesModule} from "../directives/directives.module";
+import {SuggestionBoxSkeletonComponent} from "./suggestion-box/suggestion-box-skeleton/suggestion-box-skeleton.component";
+import {PlayerEntrySkeletonComponent} from "./player-list/player-entry/player-entry-skeleton/player-entry-skeleton.component";
+import {PlayerListSkeletonComponent} from "./player-list/player-list-skeleton/player-list-skeleton.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import {DirectivesModule} from "../directives/directives.module";
     IndexComponent,
     PlayerListComponent,
     PlayerEntryComponent,
-    SuggestionBoxComponent
+    SuggestionBoxComponent,
+    SuggestionBoxSkeletonComponent,
+    PlayerEntrySkeletonComponent,
+    PlayerListSkeletonComponent
   ],
   imports: [
     CommonModule,
