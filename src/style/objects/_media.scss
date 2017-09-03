@@ -23,11 +23,13 @@
 
 .o-media {
   display: flex;
+  width: 100%;
   align-items: flex-start;
 }
 
 .o-media--fit {
   display: inline-flex;
+  width: initial;
 }
 
 .o-media__figure {
