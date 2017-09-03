@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 
 <ng-container *ngIf="stats$ | async as stats">
-  <div *ngIf="stats && stats.loading && !stats.entry; then loading else loading;"></div>
+  <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading  ;"></div>
 
   <ng-template #loading>
     <player-skeleton></player-skeleton>

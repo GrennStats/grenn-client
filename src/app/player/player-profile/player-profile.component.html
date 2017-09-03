@@ -1,11 +1,5 @@
-<!-- <ngx-charts-advanced-pie-chart
-  *ngIf="stats$ | async as stats"
-  [scheme]="'cool'"
-  [results]="getTimeData(stats.entry)"
-></ngx-charts-advanced-pie-chart> -->
-
 <ng-container *ngIf="stats$ | async as stats">
-  <div *ngIf="stats && stats.loading && !stats.entry; then loading else loading;"></div>
+  <div *ngIf="stats && stats.loading && !stats.entry; then loading else notLoading;"></div>
 
   <ng-template #loading>
     <player-profile-skeleton></player-profile-skeleton>
@@ -15,13 +9,8 @@
 
     <div class="o-grid o-grid--inside">
       <section class="o-grid__item u-1/1 u-2/6@desktop">
-        <tag-card
-          [stats]="getTagStats(stats.entry) | async"
-        ></tag-card>
-
-        <lifetime-stats-card
-          [stats]="stats.entry.all.total">
-        </lifetime-stats-card>
+        <tag-card [stats]="getTagStats(stats.entry) | async"></tag-card>
+        <lifetime-stats-card [stats]="stats.entry.all.total"></lifetime-stats-card>
       </section>
 
       <section class="o-grid__item u-1/1 u-6/6@tablet u-4/6@desktop">

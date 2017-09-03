@@ -1,1 +1,67 @@
-<loading-spinner></loading-spinner>
+<article class="c-hero-card c-skeleton">
+  <div class="c-card u-baseline-none">
+    <div class="c-card__body c-card__body--hero c-hero-card__upper">
+      <div class="o-flag o-flag--fit u-1/2">
+        <div class="o-flag__figure">
+          <hero-image-skeleton [style.width.px]="50"></hero-image-skeleton>
+        </div>
+
+        <div class="o-flag__body">
+          <div class="c-skeleton__text"></div>
+
+          <div class="u-hidden-mobile u-font-small">
+            <div class="c-skeleton__text"></div>
+          </div>
+        </div>
+      </div>
+
+      <primary-stat [description]="'stats:kda' | translate" class="u-color-primary">
+        <div class="c-skeleton__text"></div>
+      </primary-stat>
+
+      <div class="u-hidden-mobile">
+        <primary-stat [description]="'stats:win-loss' | translate">
+          <div class="c-skeleton__text"></div>
+        </primary-stat>
+      </div>
+
+      <primary-stat [description]="'stats:winrate' | translate" class="u-color-success">
+        <div class="c-skeleton__text"></div>
+      </primary-stat>
+    </div>
+  </div>
+
+  <div class="c-hero-card__body o-grid o-grid--justify-between">
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar-skeleton
+        class="c-hero-card__item"
+        [name]="'stats:kills' | translate"
+        [description]="'stats:per-min' | translate"
+      ></stat-bar-skeleton>
+    </div>
+
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar-skeleton
+        class="c-hero-card__item"
+        [name]="'stats:deaths' | translate"
+        [description]="'stats:per-min' | translate"
+      ></stat-bar-skeleton>
+    </div>
+
+    <div class="c-hero-card__body__item o-grid__item">
+      <stat-bar-skeleton
+        class="c-hero-card__item"
+        [name]="'stats:assists' | translate"
+        [description]="'stats:per-min' | translate"
+      ></stat-bar-skeleton>
+    </div>
+
+    <div class="c-hero-card__body__item o-grid__item u-hidden-mobile">
+      <stat-bar-skeleton
+        class="c-hero-card__item"
+        [name]="'stats:damage' | translate"
+        [description]="'stats:per-min' | translate"
+      ></stat-bar-skeleton>
+    </div>
+  </div>
+</article>
