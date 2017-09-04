@@ -7,5 +7,6 @@ export const environment = {
     projectId: "grenn-2c9af",
     storageBucket: "grenn-2c9af.appspot.com",
     messagingSenderId: "24657881643"
-  }
+  },
+  sentry: "https://7de28881eb3a4e3ba5d7457ab5ad52d4@sentry.io/212526"
 };

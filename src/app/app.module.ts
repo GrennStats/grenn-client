@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule, PreloadAllModules} from "@angular/router";
-import {NgModule, ErrorHandler} from "@angular/core";
+import {NgModule, ErrorHandler, Injectable} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {StoreModule} from "@ngrx/store";
@@ -20,17 +20,7 @@ import {environment} from "../environments/environment.prod";
 import {AngularFireModule} from "angularfire2";
 import {TranslateFirebaseLoader, TranslateFirebaseLoaderFactory} from "./translations/firebase.loader";
 import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
-import * as Raven from "raven-js";
-
-Raven.config("https://7de28881eb3a4e3ba5d7457ab5ad52d4@sentry.io/212526")
-  .install();
-
-export class RavenErrorHandler implements ErrorHandler {
-  public handleError(err): void {
-    console.error(err.originalError || err);
-    Raven.captureException(err.originalError || err);
-  }
-}
+import {RavenErrorHandler} from "./app.error";
 
 @NgModule({
   declarations: [
@@ -74,7 +64,10 @@ export class RavenErrorHandler implements ErrorHandler {
   ],
   providers: [
     AppConfig,
-    {provide: ErrorHandler, useClass: RavenErrorHandler}
+    {
+      provide: ErrorHandler,
+      useClass: environment.production ? RavenErrorHandler : ErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })
