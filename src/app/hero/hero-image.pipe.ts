@@ -21,6 +21,8 @@ export class HeroImagePipe implements PipeTransform {
   public transform(heroKey: string): string {
       const hero = find(this.heroes, h => h.key === heroKey);
 
+      console.log(heroKey, hero);
+
       return hero ? hero.image : "";
   }
 }

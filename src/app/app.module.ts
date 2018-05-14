@@ -20,7 +20,6 @@ import {environment} from "../environments/environment.prod";
 import {AngularFireModule} from "angularfire2";
 import {TranslateFirebaseLoader, TranslateFirebaseLoaderFactory} from "./translations/firebase.loader";
 import {AngularFireDatabase, AngularFireDatabaseModule} from "angularfire2/database";
-import {RavenErrorHandler} from "./app.error";
 
 @NgModule({
   declarations: [
@@ -63,11 +62,7 @@ import {RavenErrorHandler} from "./app.error";
     HeroModule
   ],
   providers: [
-    AppConfig,
-    {
-      provide: ErrorHandler,
-      useClass: environment.production ? RavenErrorHandler : ErrorHandler
-    }
+    AppConfig
   ],
   bootstrap: [AppComponent]
 })

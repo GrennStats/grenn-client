@@ -22,6 +22,7 @@ import {
 import {PlayerProfileSkeletonComponent} from "./player-profile/player-profile-skeleton/player-profile-skeleton.component";
 import {PlayerSkeletonComponent} from "./player-skeleton/player-skeleton.component";
 import {PlayerHeroDetailSkeletonComponent} from "./player-hero-detail/player-hero-detail-skeleton/player-hero-detail-skeleton.component";
+import {PlayerResourceFixture} from "./state/player.resource.fixtures";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,10 @@ import {PlayerHeroDetailSkeletonComponent} from "./player-hero-detail/player-her
     HeroModule,
     PipesModule
   ],
-  providers: [PlayerResource],
+  providers: [
+    PlayerResource,
+    {provide: PlayerResource, useClass: PlayerResourceFixture}
+  ],
   exports: [],
 })
 export class PlayerModule {}

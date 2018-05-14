@@ -20,6 +20,7 @@ import {DirectivesModule} from "../directives/directives.module";
 import {SuggestionBoxSkeletonComponent} from "./suggestion-box/suggestion-box-skeleton/suggestion-box-skeleton.component";
 import {PlayerEntrySkeletonComponent} from "./player-list/player-entry/player-entry-skeleton/player-entry-skeleton.component";
 import {PlayerListSkeletonComponent} from "./player-list/player-list-skeleton/player-list-skeleton.component";
+import {SearchResourceMock} from "./state/search.resource.fixtures";
 
 @NgModule({
   declarations: [
@@ -54,6 +55,9 @@ import {PlayerListSkeletonComponent} from "./player-list/player-list-skeleton/pl
     ComponentsModule,
     HeroModule
   ],
-  providers: [SearchResource],
+  providers: [
+    SearchResource,
+    {provide: SearchResource, useClass: SearchResourceMock}
+  ],
 })
 export class SearchModule {}
