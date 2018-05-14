@@ -1,28 +1,32 @@
-# GiganticLfg
+# Grenn.io
+> Stats website for the game Gigantic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
+**Important!!** Gigantic has shutdown it's API and will completly shutdown in june/july.
 
-## Development server
+## How to run it
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Dependencies:
 
-## Code scaffolding
+* Node 8+ (Probably also works with older versions)
+* A browser
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+First you need to download it from this git repository so that you can run it on your PC, you can either do that with a git client or download it straight away from github.com.
 
-## Build
+After this, you will need to install the npm dependencies, you can do that by running `npm install` inside the project root folder. You can now start the @angular/cli development server by executing `npx ng serve` and view it by navigating to `http://localhost:4200/` in your browser.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### How to run tests
 
-## Running unit tests
+You can execute the tests via `npx ng test`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Whats inside
 
-## Running end-to-end tests
+This application is written with
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Angular (\^4.0.0)
+* NGRX and my self built ngrx abstraction
+* Firebase
+* immutable.js
+* Ramda
+* lodash
+* numeral
+* and more...
